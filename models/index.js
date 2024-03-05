@@ -8,8 +8,8 @@ import Calificacion from "./Calificacion.js";
 Rol.hasOne(Usuario);
 Usuario.belongsTo(Rol);
 
-Usuario.hasMany(Propiedad)
-Propiedad.belongsTo(Usuario)
+Usuario.hasMany(Propiedad);
+Propiedad.belongsTo(Usuario);
 
 Categoria.belongsToMany(Propiedad, { through: "propiedad_categoria" });
 Propiedad.belongsToMany(Categoria, { through: "propiedad_categoria" });
@@ -23,13 +23,4 @@ Comentario.belongsTo(Propiedad);
 Usuario.belongsToMany(Propiedad, { through: Calificacion });
 Propiedad.belongsToMany(Usuario, { through: Calificacion });
 
-
-export {
-    Rol,
-    Usuario,
-    Propiedad,
-    Categoria,
-    Comentario,
-    Calificacion
-};
-
+export { Rol, Usuario, Propiedad, Categoria, Comentario, Calificacion };
