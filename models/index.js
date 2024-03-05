@@ -21,6 +21,6 @@ Propiedad.hasMany(Comentario);
 Comentario.belongsTo(Propiedad);
 
 Usuario.belongsToMany(Propiedad, { through: Calificacion });
-Propiedad.belongsToMany(Usuario, { through: Calificacion });
+Propiedad.belongsToMany(Usuario, { through: Calificacion }) ;
 
 export { Rol, Usuario, Propiedad, Categoria, Comentario, Calificacion };

@@ -11,11 +11,13 @@ import express from "express";
 //importing configuration files
 import db from "./config/db.js";
 
+
+import { rolRoute, calificacionRoute } from "./routes/index.js";
+
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
 
-//importing routes
-import { rolRoute } from "./routes/index.js";
+
 import usuarioRouter from "./routes/UserRoutes.js";
 
 //creating an instance of the Express server
@@ -67,6 +69,7 @@ await dbConnection();
 //defining routes
 app.use("/api", rolRoute);
 app.use("/api", usuarioRouter);
+app.use("/api", calificacionRoute);
 
 //catch-all routes not found
 app.use((req, res, next) => {
