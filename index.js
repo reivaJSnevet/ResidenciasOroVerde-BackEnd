@@ -13,12 +13,10 @@ import db from "./config/db.js";
 
 
 
-import propiedadRouter from "./routes/PropiedadRoutes.js";
-import categoriaRouter from "./routes/CategoriaRoutes.js";
-import comentarioRouter from "./routes/ComentarioRoutes.js";
 
 
-import { rolRoute, calificacionRoute, usuarioRoute } from "./routes/index.js";
+
+import { rolRoute, calificacionRoute, usuarioRoute, propiedadRoute, categoriaRoute, comentarioRoute } from "./routes/index.js";
 
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
@@ -76,9 +74,9 @@ await dbConnection();
 app.use("/api", rolRoute);
 
 
-app.use("/api", propiedadRouter);
-app.use("/api", categoriaRouter);
-app.use("/api", comentarioRouter);
+app.use("/api", propiedadRoute);
+app.use("/api", categoriaRoute);
+app.use("/api", comentarioRoute);
 
 app.use("/api", usuarioRoute);
 app.use("/api", calificacionRoute);
