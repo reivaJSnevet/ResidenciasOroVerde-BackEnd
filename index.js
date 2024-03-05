@@ -3,6 +3,9 @@ import db from "./config/db.js";
 
 import { rolRoute } from "./routes/index.js";
 import usuarioRouter from "./routes/UserRoutes.js";
+import propiedadRouter from "./routes/PropiedadRoutes.js";
+import categoriaRouter from "./routes/CategoriaRoutes.js";
+import comentarioRouter from "./routes/ComentarioRoutes.js";
 
 const app = express();
 
@@ -43,6 +46,9 @@ await dbConnection();
 
 app.use("/api", rolRoute);
 app.use("/api", usuarioRouter);
+app.use("/api", propiedadRouter);
+app.use("/api", categoriaRouter);
+app.use("/api", comentarioRouter);
 
 const port = 3000;
 app.listen(port, () => {
