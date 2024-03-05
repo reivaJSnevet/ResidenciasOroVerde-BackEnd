@@ -1,4 +1,4 @@
-import calificacionRepository from '../repositories/CalificacionRepository';
+import calificacionRepository from '../repositories/CalificacionRepository.js';
 
 const calificacionService = {
 

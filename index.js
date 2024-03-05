@@ -1,7 +1,7 @@
 import express from "express";
 import db from "./config/db.js";
 
-import { rolRoute } from "./routes/index.js";
+import { rolRoute, calificacionRoute } from "./routes/index.js";
 import usuarioRouter from "./routes/UserRoutes.js";
 
 const app = express();
@@ -43,6 +43,7 @@ await dbConnection();
 
 app.use("/api", rolRoute);
 app.use("/api", usuarioRouter);
+app.use("/api", calificacionRoute);
 
 const port = 3000;
 app.listen(port, () => {

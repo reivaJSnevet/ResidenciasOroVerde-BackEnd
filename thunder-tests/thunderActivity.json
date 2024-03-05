@@ -1,0 +1,16 @@
+[
+    {
+        "_id": "db6edeb1-9900-44d3-8761-e54feb0eef80",
+        "colId": "history",
+        "containerId": "",
+        "name": "http://localhost:3000/api/calificaciones",
+        "url": "http://localhost:3000/api/calificaciones",
+        "method": "GET",
+        "sortNum": 0,
+        "created": "2024-03-05T14:47:47.332Z",
+        "modified": "2024-03-05T14:47:47.332Z",
+        "headers": [],
+        "params": [],
+        "tests": []
+    }
+]
