@@ -1,4 +1,5 @@
 import rolRepository from "../repositories/RolRepository.js";
+import { NotFoundError } from "../errors/index.js";
 
 const rolService = {
   createRol: async (rol) => {
@@ -23,7 +24,7 @@ const rolService = {
     try {
       const rol = await rolRepository.getById(id);
       if (!rol) {
-        throw new Error("Rol no encontrado", id);
+        throw new NotFoundError("Rol", id);
       }
       return rol;
     } catch (error) {
@@ -35,7 +36,7 @@ const rolService = {
     try {
       const rolUpdated = await rolRepository.update(id, rol);
       if (!rolUpdated) {
-        throw new Error("Rol no encontrado", id);
+        throw new NotFoundError("Rol", id);
       }
       return rolUpdated;
     } catch (error) {
@@ -47,7 +48,7 @@ const rolService = {
     try {
       const rol = await rolRepository.getById(id);
       if (!rol) {
-        throw new Error("Rol no encontado", id);
+        throw new NotFoundError("Rol", id);
       }
 
       const rolDeleted = await rolRepository.delete(id);
