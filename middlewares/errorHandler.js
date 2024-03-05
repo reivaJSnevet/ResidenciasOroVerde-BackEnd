@@ -85,9 +85,8 @@ const customErrorHandlerMap = {
 const logError = (err) => {
     console.log("\x1b[1m\x1b[33m%s\x1b[0m", "Error name:", "\x1b[33m", err.name);
     console.log("\x1b[1m\x1b[31m%s\x1b[0m", "Error message:", "\x1b[31m", err.message);
-    console.error("\x1b[1m\x1b[90m%s\x1b[0m", "Error stack:", "\x1b[90m", err.stack || "🥞");
-    
-
+    console.error("\x1b[1m\x1b[90m%s\x1b[0m", "Error stack:", err.stack || "🥞");
+    console.log("\n\n");
 };
 
 const defaultErrorHandler = (err, res) => {

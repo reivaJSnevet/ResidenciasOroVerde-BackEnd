@@ -6,13 +6,28 @@ const Calificacion = db.define("Calificacion", {
         type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false,
-        defaultValue: DataTypes.UUIDV4
+        defaultValue: DataTypes.UUIDV4,
     },
     calificacion: {
         type: DataTypes.FLOAT,
-        allowNull: true
-     
-        }       
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: "La calificación es obligatoria",
+            },
+            isFloat: {
+                msg: "La calificación debe ser un número",
+            },
+            min: {
+                args: 0,
+                msg: "La calificación mínima es 0",
+            },
+            max: {
+                args: 5,
+                msg: "La calificación máxima es 5",
+            },
+        },
+    },
 });
 
 export default Calificacion;
