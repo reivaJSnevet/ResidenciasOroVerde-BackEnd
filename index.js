@@ -12,6 +12,12 @@ import express from "express";
 import db from "./config/db.js";
 
 
+
+import propiedadRouter from "./routes/PropiedadRoutes.js";
+import categoriaRouter from "./routes/CategoriaRoutes.js";
+import comentarioRouter from "./routes/ComentarioRoutes.js";
+
+
 import { rolRoute, calificacionRoute, usuarioRoute } from "./routes/index.js";
 
 //importing middleware
@@ -68,6 +74,12 @@ await dbConnection();
 
 //defining routes
 app.use("/api", rolRoute);
+
+
+app.use("/api", propiedadRouter);
+app.use("/api", categoriaRouter);
+app.use("/api", comentarioRouter);
+
 app.use("/api", usuarioRoute);
 app.use("/api", calificacionRoute);
 
@@ -81,6 +93,7 @@ app.use((req, res, next) => {
 
 //error handling middleware
 app.use(errorHandler);
+
 
 //starting the server
 const port = process.env.PORT || 4000;
