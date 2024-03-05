@@ -12,13 +12,13 @@ import express from "express";
 import db from "./config/db.js";
 
 
-import { rolRoute, calificacionRoute } from "./routes/index.js";
+import { rolRoute, calificacionRoute, usuarioRoute } from "./routes/index.js";
 
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
 
 
-import usuarioRouter from "./routes/UserRoutes.js";
+// import usuarioRouter from "./routes/UserRoutes.js";
 
 //creating an instance of the Express server
 const app = express();
@@ -68,7 +68,7 @@ await dbConnection();
 
 //defining routes
 app.use("/api", rolRoute);
-app.use("/api", usuarioRouter);
+app.use("/api", usuarioRoute);
 app.use("/api", calificacionRoute);
 
 //catch-all routes not found
