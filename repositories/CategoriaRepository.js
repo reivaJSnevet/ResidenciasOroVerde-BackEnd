@@ -29,12 +29,11 @@ const categoriaRepository = {
         }
     },
 
-    update: async (id, categoria) => {
+    update: async (id, actualizarCategoria) => {
         try {
-            const categoriaActualizada = await Categoria.update(categoria, {
-                where: {
-                    id
-                }
+            const categoriaActualizada = await Categoria.update(actualizarCategoria, {
+                where: { id },
+                individualHooks: true,
             });
             return categoriaActualizada[1][0];
         } catch (error) {
@@ -42,10 +41,14 @@ const categoriaRepository = {
         }
     },
 
+
     delete: async (id) => {
         try {
-            const categoriaEliminada = await Categoria.destroy({ where: { id } });
-            return categoriaEliminada;
+            const categoria = await Categoria.destroy({
+                 where: { id }, 
+                 individualHooks: true,
+                });
+            return categoria;
         } catch (error) {
             throw error;
         }
