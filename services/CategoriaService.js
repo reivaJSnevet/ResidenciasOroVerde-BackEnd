@@ -50,12 +50,13 @@ const categoriaService = {
         throw new Error("Categoría no encontrada", id);
       }
 
-      const categoriaEliminada = await categoriaEliminada.delete(id);
+      const categoriaEliminada = await categoriaRepository.delete(id);
       return categoriaEliminada;
     } catch (error) {
       throw error;
     }
   },
 };
+
 
 export default categoriaService;

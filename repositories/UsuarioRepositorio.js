@@ -33,9 +33,8 @@ const usuarioRepository = {
   update: async (id, actualizarUsuario) => {
     try {
       const usuarioActualizado = await Usuario.update(actualizarUsuario, {
-        where: {
-          id,
-        },
+        where: {id },
+        individualHooks:true,
       });
       return usuarioActualizado[1][0];
     } catch (error) {

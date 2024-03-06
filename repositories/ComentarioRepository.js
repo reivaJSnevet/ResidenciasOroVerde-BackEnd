@@ -23,9 +23,8 @@ const comentarioRepository = {
   update: async (id, actualizarComentario) => {
     try {
       const comentarioActualizado = await Comentario.update(actualizarComentario, {
-        where: {
-          id,
-        },
+        where: { id },
+        individualHooks: true,
       });
       return comentarioActualizado[1][0];
     } catch (error) {
@@ -35,12 +34,17 @@ const comentarioRepository = {
 
   delete: async (id) => {
     try {
-      const comentario = await Comentario.destroy({ where: { id } });
+      const comentario = await Comentario.destroy({ 
+        where: { id }, 
+      individualHooks: true,
+    });
       return comentario;
     } catch (error) {
       throw error;
     }
   },
 };
+
+
 
 export default comentarioRepository;

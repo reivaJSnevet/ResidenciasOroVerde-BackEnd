@@ -30,26 +30,28 @@ const propiedadRepository = {
     },
   
 
-  update: async (id, actualizarPropiedad) => {
-    try {
-      const propiedadActualizada = await Propiedad.update(actualizarPropiedad, {
-        where: {
-          id,
-        },
-      });
-      return propiedadActualizada [1][0];
-    } catch (error) {
-      throw error;
-    }
+    update: async (id, actualizarPropiedad) => {
+      try {
+          const propiedadActualizada = await Propiedad.update(actualizarPropiedad, {
+              where: { id },
+              individualHooks: true,
+          });
+          return propiedadActualizada [1][0];
+      } catch (error) {
+          throw error;
+      }
   },
 
   delete: async (id) => {
-    try {
-      const propiedad = await Propiedad.destroy({ where: { id } });
-      return propiedad;
-    } catch (error) {
-      throw error;
-    }
+      try {
+          const propiedad = await Propiedad.destroy({
+              where: { id },
+              individualHooks: true,
+          });
+          return rol;
+      } catch (error) {
+          throw error;
+      }
   },
 };
 

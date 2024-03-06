@@ -34,7 +34,7 @@ const comentarioService = {
 
     deleteComentario: async (id) => {
         try {
-            const comentario = await comentarioRepository.getById(id);
+            const comentario = await comentarioRepository.delete(id);
             if (!comentario) {
                 throw new Error("Comentario no encontado", id);
             }
