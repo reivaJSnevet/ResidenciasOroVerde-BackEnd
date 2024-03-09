@@ -1,3 +1,4 @@
+import { NotFoundError } from "../errors/index.js";
 import propiedadRepository from "../repositories/PropiedadRepository.js";
 
 const propiedadService = {

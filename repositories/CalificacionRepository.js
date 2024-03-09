@@ -34,7 +34,8 @@ const calificacionRepository = {
            const calificacionActualizada = await Calificacion.update(calificacion, {
                 where: {
                      id
-                }
+                }, 
+                individualHooks: true,
               });
                 return calificacionActualizada[1][0];
         } catch (error) {

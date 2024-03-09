@@ -1,3 +1,4 @@
+import { NotFoundError } from "../errors/index.js";
 import comentarioRepository from "../repositories/ComentarioRepository.js";
 
 const comentarioService = {
