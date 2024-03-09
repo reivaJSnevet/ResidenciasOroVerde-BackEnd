@@ -8,7 +8,7 @@ import Calificacion from "./Calificacion.js";
 Rol.hasOne(Usuario);
 Usuario.belongsTo(Rol);
 
-Usuario.hasMany(Propiedad);
+Usuario.hasMany(Propiedad, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
 Propiedad.belongsTo(Usuario);
 
 Categoria.belongsToMany(Propiedad, { through: "propiedad_categoria" });

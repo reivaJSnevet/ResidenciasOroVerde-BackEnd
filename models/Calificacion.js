@@ -19,11 +19,11 @@ const Calificacion = db.define("Calificacion", {
                 msg: "La calificación debe ser un número",
             },
             min: {
-                args: 0,
+                args: [0],
                 msg: "La calificación mínima es 0",
             },
             max: {
-                args: 5,
+                args: [5],
                 msg: "La calificación máxima es 5",
             },
         },
