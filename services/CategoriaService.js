@@ -1,3 +1,4 @@
+import NotFoundError from "../errors/notFoundError.js";
 import categoriaRepository from "../repositories/CategoriaRepository.js";
 
 const categoriaService = {
@@ -23,7 +24,7 @@ const categoriaService = {
     try {
       const categoria = await categoriaRepository.getById(id);
       if (!categoria) {
-        throw new Error("Categoría no encontrada", id);
+        throw new NotFoundError("Categoría", id);
       }
       return categoria;
     } catch (error) {
@@ -35,7 +36,7 @@ const categoriaService = {
     try {
       const categoriaActualizada = await categoriaRepository.update(id, categoria);
       if (!categoriaActualizada) {
-        throw new Error("Categoría no encontrada", id);
+        throw new NotFoundError("Categoría", id);
       }
       return categoriaActualizada;
     } catch (error) {
@@ -47,7 +48,7 @@ const categoriaService = {
     try {
       const categoria = await categoriaRepository.getById(id);
       if (!categoria) {
-        throw new Error("Categoría no encontrada", id);
+        throw new NotFoundError("Categoría", id);
       }
 
       const categoriaEliminada = await categoriaRepository.delete(id);

@@ -23,7 +23,7 @@ const propiedadService = {
     try {
       const propiedad = await propiedadRepository.getById(id);
       if (!propiedad) {
-        throw new Error("Propiedad no encontrada", id);
+        throw new NotFoundError("Propiedad", id);
       }
       return propiedad;
     } catch (error) {
@@ -35,7 +35,7 @@ const propiedadService = {
     try {
       const propiedadActualizada = await propiedadRepository.update(id, propiedad);
       if (!propiedadActualizada) {
-        throw new Error("Propiedad no encontrada", id);
+        throw new NotFoundError("Propiedad", id);
       }
       return propiedadActualizada;
     } catch (error) {
@@ -47,7 +47,7 @@ const propiedadService = {
     try {
       const propiedad = await propiedadRepository.getById(id);
       if (!propiedad) {
-        throw new Error("Propiedad no encontrada", id);
+        throw new NotFoundError("Propiedad", id);
       }
 
       const propiedadEliminada = await propiedadRepository.delete(id);

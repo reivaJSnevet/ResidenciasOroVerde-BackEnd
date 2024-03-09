@@ -111,7 +111,9 @@ const Usuario = db.define(
                 },
                 isJSON: (value) => {
                     try {
-                        JSON.parse(value);
+                        const string = JSON.stringify(value);
+                        JSON.parse(string);
+            
                     } catch (error) {
                         throw new ValidationError("El teléfono debe ser un JSON válido", "telefonos");
                     }
@@ -121,7 +123,7 @@ const Usuario = db.define(
         verificarEmail: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: false,
+            defaultValue: true,
         },
         tokenRefrescar: {
             type: DataTypes.STRING,

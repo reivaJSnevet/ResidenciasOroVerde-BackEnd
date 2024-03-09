@@ -1,4 +1,5 @@
 import calificacionRepository from '../repositories/CalificacionRepository.js';
+import { NotFoundError } from '../errors/index.js';
 
 const calificacionService = {
 
@@ -24,7 +25,7 @@ const calificacionService = {
         try {
             const calificacion = await calificacionRepository.getById(id);
             if (!calificacion) {
-                throw new Error('Calificacion no encontrada');
+                throw new NotFoundError('Calificacion', id);
             }
             return calificacion;
         } catch (error) {
@@ -36,7 +37,7 @@ const calificacionService = {
         try {
             const calificacionUpdated = await calificacionRepository.update(id, calificacion);
             if (!calificacionUpdated) {
-                throw new Error('Calificacion no encontrada');
+                throw new NotFoundError('Calificacion', id);
             }
             return calificacionUpdated;
         } catch (error) {
@@ -48,7 +49,7 @@ const calificacionService = {
         try {
            const calificacion = await calificacionRepository.delete(id);
             if (!calificacion) {
-                throw new Error('Calificacion no encontrada');
+                throw new NotFoundError('Calificacion', id);
             }
 
             const calificacionDeleted = await calificacionRepository.delete(id);
