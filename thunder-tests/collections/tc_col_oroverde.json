@@ -37,7 +37,7 @@
             "name": "Roles",
             "containerId": "",
             "created": "2024-03-05T17:16:03.822Z",
-            "sortNum": 50000
+            "sortNum": 7500
         },
         {
             "_id": "28a19f6b-4e3f-4785-91f7-aa562fa745a1",
@@ -45,6 +45,13 @@
             "containerId": "",
             "created": "2024-03-05T17:16:21.288Z",
             "sortNum": 60000
+        },
+        {
+            "_id": "c7821f2f-7884-4037-8dcb-5b94f32a3734",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-03-09T02:45:52.379Z",
+            "sortNum": 5000
         }
     ],
     "requests": [
@@ -52,20 +59,20 @@
             "_id": "87564df9-dab1-4808-8f27-e08f81e75b00",
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "040b9623-257f-4b9d-b710-c6babff27ae2",
-            "name": "PostUsuarios",
-            "url": "http://localhost:4000/api/usuarios",
+            "name": "PostUsuario",
+            "url": "usuarios",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-05T17:05:37.551Z",
-            "modified": "2024-03-05T17:21:20.047Z",
+            "modified": "2024-03-09T03:33:18.008Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"id\": \"267317283\",\r\n  \"nombre\": \"Admin\",\r\n  \"apellido1\": \"García\",\r\n  \"apellido2\": \"López\",\r\n  \"correo\": \"juan@example.com\",\r\n  \"clave\": \"Password123\",\r\n \"telefonos\": \"{\\\"principal\\\":\\\"123456789\\\",\\\"secundario\\\":\\\"987654321\\\"}\",\r\n \"roleID\":\"6b998898-250b-4ccc-88f6-055b424cdee2\"\r\n}\r\n",
+                "raw": "{\n  \"id\": \"267317283\",\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"juan@example.com\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"123456789\",\n    \"secundario\": \"987654321\"\n  },\n  \"RolId\": \"7cb333f0-9349-4d4f-ba2d-f162001ade9c\"\n}",
                 "form": []
             },
-            "reqType": "get",
+            "reqType": "post",
             "tests": []
         },
         {
@@ -73,11 +80,11 @@
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "040b9623-257f-4b9d-b710-c6babff27ae2",
             "name": "GetAllUsuarios",
-            "url": "http://localhost:4000/api/usuarios",
+            "url": "usuarios",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-05T17:05:47.117Z",
-            "modified": "2024-03-05T17:13:27.299Z",
+            "modified": "2024-03-09T03:46:54.639Z",
             "headers": [],
             "params": [],
             "reqType": "get",
@@ -87,14 +94,15 @@
             "_id": "ce86caa0-2caf-4f97-b04a-99777e68c987",
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "040b9623-257f-4b9d-b710-c6babff27ae2",
-            "name": "GetByIdUsuario",
-            "url": "http://localhost:4000/api/usuarios/567347283",
+            "name": "GetUsuarioById",
+            "url": "/usuarios/567347283",
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-03-05T17:12:29.995Z",
-            "modified": "2024-03-05T17:13:29.505Z",
+            "modified": "2024-03-09T03:52:12.259Z",
             "headers": [],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -102,11 +110,11 @@
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "040b9623-257f-4b9d-b710-c6babff27ae2",
             "name": "UpdateUsuario",
-            "url": "http://localhost:4000/api/usuarios/567317283",
+            "url": "usuarios/267317283",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-05T17:13:01.439Z",
-            "modified": "2024-03-05T17:20:20.202Z",
+            "modified": "2024-03-09T04:04:22.060Z",
             "headers": [],
             "params": [],
             "body": {
@@ -114,6 +122,7 @@
                 "raw": "{\n   \"apellido1\": \"Test\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -121,60 +130,64 @@
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "040b9623-257f-4b9d-b710-c6babff27ae2",
             "name": "DeleteUsuario",
-            "url": "http://localhost:4000/api/usuarios/567347283",
+            "url": "usuarios/267317283",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-03-05T17:14:32.672Z",
-            "modified": "2024-03-05T17:14:41.108Z",
+            "modified": "2024-03-09T04:05:06.217Z",
             "headers": [],
             "params": [],
+            "reqType": "del",
             "tests": []
         },
         {
             "_id": "f9404c6f-ff2d-442c-b361-704d912b241d",
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "22faff9a-8a94-4676-8c95-bd33a65e6433",
-            "name": "GetAllCategorias",
-            "url": "http://localhost:4000/api/roles",
+            "name": "GetAllRoles",
+            "url": "roles",
             "method": "GET",
             "sortNum": 60000,
             "created": "2024-03-05T17:16:31.608Z",
-            "modified": "2024-03-05T17:17:06.085Z",
+            "modified": "2024-03-09T03:08:35.478Z",
             "headers": [],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
             "_id": "cb40b1e7-9fc7-44f2-8024-dd3f5a5eb920",
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "22faff9a-8a94-4676-8c95-bd33a65e6433",
-            "name": "postRol",
-            "url": "http://localhost:4000/api/roles",
+            "name": "PostRol",
+            "url": "roles",
             "method": "POST",
-            "sortNum": 70000,
+            "sortNum": 30000,
             "created": "2024-03-05T17:17:16.343Z",
-            "modified": "2024-03-05T17:17:58.649Z",
+            "modified": "2024-03-09T03:02:53.902Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"vendedor\"\n}",
+                "raw": "{\n  \"nombre\": \"adminiaaaaa\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
             "_id": "f64b5db8-7771-4db7-baf9-ac1cff935053",
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "22faff9a-8a94-4676-8c95-bd33a65e6433",
-            "name": "GetById",
-            "url": "http://localhost:4000/api/roles/c56accb7-4618-41a0-ad99-0733176cc97d",
+            "name": "GetRolById",
+            "url": "roles/7cb333f0-9349-4d4f-ba2d-f162001ade9",
             "method": "GET",
-            "sortNum": 80000,
+            "sortNum": 65000,
             "created": "2024-03-05T17:18:11.960Z",
-            "modified": "2024-03-05T17:19:07.991Z",
+            "modified": "2024-03-09T02:57:42.435Z",
             "headers": [],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -182,13 +195,14 @@
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "22faff9a-8a94-4676-8c95-bd33a65e6433",
             "name": "DeleteRol",
-            "url": "http://localhost:4000/api/roles/8590497d-864f-4bb8-902d-7a8e7e7e6c46",
+            "url": "roles/f981bed2-ebaa-4098-9137-2f74075ecedd",
             "method": "DELETE",
             "sortNum": 90000,
             "created": "2024-03-05T17:18:37.496Z",
-            "modified": "2024-03-05T17:18:52.734Z",
+            "modified": "2024-03-09T03:10:38.691Z",
             "headers": [],
             "params": [],
+            "reqType": "del",
             "tests": []
         },
         {
@@ -196,18 +210,19 @@
             "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
             "containerId": "22faff9a-8a94-4676-8c95-bd33a65e6433",
             "name": "UpdateRol",
-            "url": "http://localhost:4000/api/roles/c56accb7-4618-41a0-ad99-0733176cc97d",
+            "url": "roles/7cb333f0-9349-4d4f-ba2d-f162001ade9c",
             "method": "PUT",
-            "sortNum": 100000,
+            "sortNum": 77500,
             "created": "2024-03-05T17:19:14.499Z",
-            "modified": "2024-03-05T17:19:59.613Z",
+            "modified": "2024-03-09T03:10:19.900Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\":\"VendedorTest\"\n}",
+                "raw": "{\n  \"nombre\":\"admin\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -526,6 +541,34 @@
             "created": "2024-03-05T17:41:30.078Z",
             "modified": "2024-03-05T17:41:30.078Z",
             "headers": []
+        },
+        {
+            "_id": "fe8c99bc-42b7-4bba-a8f8-586a7b07ce16",
+            "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
+            "containerId": "c7821f2f-7884-4037-8dcb-5b94f32a3734",
+            "name": "Login",
+            "url": "auth/login",
+            "method": "POST",
+            "sortNum": 320000,
+            "created": "2024-03-09T02:46:37.094Z",
+            "modified": "2024-03-09T02:48:11.916Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"correo\": \"a@gmail.com\",\n  \"clave\": \"password\"\n}",
+                "form": []
+            },
+            "tests": []
         }
-    ]
+    ],
+    "settings": {
+        "auth": {
+            "type": "bearer",
+            "bearer": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTHVpcyIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA5OTQxNjg0fQ.ghVC3CnWgrb4Al3XwCy0uJVAQo70qU6UAC8rLJJjfrg"
+        },
+        "options": {
+            "baseUrl": "http://localhost:3000/api/"
+        }
+    }
 }
