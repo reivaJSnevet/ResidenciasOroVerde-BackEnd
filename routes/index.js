@@ -4,3 +4,4 @@ export { default as usuarioRoute} from './UserRoutes.js'
 export { default as propiedadRoute} from './PropiedadRoutes.js'
 export { default as categoriaRoute} from './CategoriaRoutes.js'
 export { default as comentarioRoute} from './ComentarioRoutes.js'
+export { default as authRoute } from './AuthRoutes.js';
