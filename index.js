@@ -7,9 +7,18 @@
 
 //importing Node.js modules
 import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import helmet from "helmet";
 
 //importing configuration files
 import db from "./config/db.js";
+import corsOptions from "./config/corsOptions.js";
+
+//importing middleware
+import errorHandler from "./middlewares/errorHandler.js";
+import verifyJWT from "./middlewares/verifyJWT.js";
+import credentials from "./middlewares/credentials.js";
 
 import {
   rolRoute,
@@ -18,12 +27,8 @@ import {
   propiedadRoute,
   categoriaRoute,
   comentarioRoute,
+  authRoute,
 } from "./routes/index.js";
-
-//importing middleware
-import errorHandler from "./middlewares/errorHandler.js";
-
-// import usuarioRouter from "./routes/UserRoutes.js";
 
 //creating an instance of the Express server
 const app = express();
@@ -31,6 +36,10 @@ const app = express();
 //setting up middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors(corsOptions));
+app.use(helmet());
+/* app.use(credentials); */
 
 /**
  * Establishes a connection to the database and synchronizes the models.
@@ -48,7 +57,7 @@ async function dbConnection() {
 
     try {
       //synchronizing the models with the database
-      await db.sync({ force: false });
+      await db.sync();
       console.log(
         "\x1b[36m%s\x1b[0m",
         "All models were synchronized successfully."
@@ -71,7 +80,11 @@ async function dbConnection() {
 //calling the function to establish a connection to the database
 await dbConnection();
 
-//defining routes
+//defining public routes
+app.use("/api", authRoute);
+
+//defining private routes
+app.use("/api", verifyJWT);
 app.use("/api", rolRoute);
 app.use("/api", propiedadRoute);
 app.use("/api", categoriaRoute);

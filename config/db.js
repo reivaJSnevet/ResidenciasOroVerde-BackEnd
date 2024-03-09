@@ -15,6 +15,8 @@ const db = new Sequelize(
         define: {
             timestamps: false,
             paranoid: false,
+            freezeTableName: true,
+
         },
         pool: {
             acquire: 30000,
