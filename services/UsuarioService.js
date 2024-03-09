@@ -4,8 +4,10 @@ import { NotFoundError} from "../errors/index.js";
 const usuarioService = {
     createUsuario: async (usuario) => {
         try {
-            const nuevoUusario = await usuarioRepository.create(usuario);
-            return nuevoUusario;
+            const nuevoUsuario = await usuarioRepository.create(usuario);
+            delete nuevoUsuario.dataValues.clave;
+            
+            return nuevoUsuario;
         } catch (error) {
             throw error;
         }

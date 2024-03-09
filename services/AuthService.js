@@ -23,13 +23,12 @@ const authService = {
                 throw new UnauthorizedError("Correo sin verificar", null);
             }
 
-            delete usuario.dataValues.clave;
-
             const tokenAcceso = generateAccessToken(usuario);
             const tokenRefrescar = generateRefreshToken(usuario);
 
             usuario.tokenRefrescar = tokenRefrescar;
             await usuario.save();
+            delete usuario.dataValues.tokenRefrescar;
 
             return {
                 usuario,
@@ -42,6 +41,15 @@ const authService = {
     },
     logout: async (tokenRefrescar) => {
         try {
+            const decoded = await verifySignature(
+                tokenRefrescar,
+                process.env.JWT_REFRESH_SECRET
+            );
+
+            if (!decoded) {
+                throw new UnauthorizedError("Token inválido", tokenRefrescar);
+            }
+
             const usuario = await authRepository.getByRefreshToken(
                 tokenRefrescar
             );
@@ -61,6 +69,15 @@ const authService = {
     },
     handleRefreshToken: async (tokenRefrescar) => {
         try {
+            const decoded = await verifySignature(
+                tokenRefrescar,
+                process.env.JWT_REFRESH_SECRET
+            );
+
+            if (!decoded) {
+                throw new UnauthorizedError("Token inválido", tokenRefrescar);
+            }
+
             const usuario = await authRepository.getByRefreshToken(
                 tokenRefrescar
             );
@@ -72,16 +89,7 @@ const authService = {
                 );
             }
 
-            const decoded = await verifySignature(
-                tokenRefrescar,
-                process.env.JWT_REFRESH_SECRET
-            );
-
-            if (!decoded) {
-                throw new UnauthorizedError("Token inválido", tokenRefrescar);
-            }
-
-            delete user.dataValues.clave;
+            delete usuario.dataValues.clave;
             const tokenAcceso = generateAccessToken(usuario);
             return {
                 usuario,

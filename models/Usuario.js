@@ -143,6 +143,9 @@ const Usuario = db.define(
                 }
             },
         },
+        defaultScope: {
+            attributes: { exclude: ["clave", "tokenRefrescar", "tokenRecuperar"] },
+        },
     }
 );
 
@@ -163,7 +166,7 @@ const hashPasswordBulk = async (usuarios) => {
  * @param {string} clave - The password to validate.
  * @returns {Promise<boolean>} - A promise that resolves to true if the password is valid, false otherwise.
  */
-Usuario.prototype.validarClave = async (clave) => {
+Usuario.prototype.validarClave = async function (clave) {
     if (!this.clave) {
         return false;
     }
