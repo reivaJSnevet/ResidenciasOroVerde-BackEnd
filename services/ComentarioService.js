@@ -24,7 +24,7 @@ const comentarioService = {
         try {
             const comentarioActualizado = await comentarioRepository.update(id, comentario);
             if (!comentarioActualizado) {
-                throw new Error("Comentario no encontrado", id);
+                throw new NotFoundError("Comentario", id);
             }
             return comentarioActualizado;
         } catch (error) {
@@ -36,7 +36,7 @@ const comentarioService = {
         try {
             const comentario = await comentarioRepository.delete(id);
             if (!comentario) {
-                throw new Error("Comentario no encontado", id);
+                throw new NotFoundError("Comentario", id);
             }
 
             const comentarioEliminado = await comentarioRepository.delete(id);

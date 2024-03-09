@@ -1,4 +1,5 @@
 import usuarioRepository from "../repositories/UsuarioRepositorio.js";
+import { NotFoundError} from "../errors/index.js";
 
 const usuarioService = {
     createUsuario: async (usuario) => {
@@ -23,7 +24,7 @@ const usuarioService = {
         try {
             const usuario = await usuarioRepository.getById(id);
             if (!usuario) {
-                throw new Error("Usuario no encontrado", id);
+                throw new NotFoundError("Usuario", id);
             }
             return usuario;
         } catch (error) {
@@ -35,7 +36,7 @@ const usuarioService = {
         try {
             const usuarioActualizado = await usuarioRepository.update(id, usuario);
             if (!usuarioActualizado) {
-                throw new Error("Usuario no encontrado", id);
+                throw new NotFoundError("Usuario", id);
             }
             return usuarioActualizado;
         } catch (error) {
@@ -47,7 +48,7 @@ const usuarioService = {
         try {
             const usuario = await usuarioRepository.getById(id);
             if (!usuario) {
-                throw new Error("Usuario no encontado", id);
+                throw new NotFoundError("Usuario", id);
             }
 
             const usuarioEliminado = await usuarioRepository.delete(id);
