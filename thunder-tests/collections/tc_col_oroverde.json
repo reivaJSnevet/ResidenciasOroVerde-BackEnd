@@ -234,12 +234,12 @@
             "method": "POST",
             "sortNum": 110000,
             "created": "2024-03-05T17:22:16.661Z",
-            "modified": "2024-03-09T05:57:43.711Z",
+            "modified": "2024-03-10T04:36:04.410Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Casa de Campito\",\n  \"coordenadas\": {\n    \"type\": \"Point\",\n    \"coordinates\": [-75.689728, 45.420943]\n  },\n  \"dimensiones\": \"200m²\",\n  \"renta\": true,\n  \"numHabitaciones\": 3,\n  \"precioAlquiler\": 1200.50,\n  \"precioVenta\": null,\n  \"numducha\": 2,\n  \"garaje\": null,\n  \"descripcion\": \"Acogedora casa de campo con amplio jardín.\",\n  \"restricciones\": \"No se permiten mascotas.\",\n  \"calificacion\": 4.5,\n  \"UsuarioId\": \"267317282\"\n}",
+                "raw": "{\n  \"nombre\": \"Casa de Campito\",\n  \"coordenadas\": {\n    \"type\": \"Point\",\n    \"coordinates\": [-75.689728, 45.420943]\n  },\n  \"dimensiones\": \"200m²\",\n  \"renta\": true,\n  \"numHabitaciones\": 3,\n  \"precioAlquiler\": 1200.50,\n  \"precioVenta\": null,\n  \"numducha\": 2,\n  \"garaje\": null,\n  \"descripcion\": \"Acogedora casa de campo con amplio jardín.\",\n  \"restricciones\": \"No se permiten mascotas.\",\n  \"calificacion\": 4.5,\n  \"UsuarioId\": \"267317282\",\n  \"fotos\": \"url1, url2, url3, url4\"\n}",
                 "form": []
             },
             "reqType": "post",

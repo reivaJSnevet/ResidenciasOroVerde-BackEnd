@@ -147,6 +147,18 @@ const Propiedad = db.define("Propiedad", {
         type: DataTypes.FLOAT,
         allowNull: true,
     },
+    fotos: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: "Las fotos son obligatorias",
+            },
+            notEmpty: {
+                msg: "Las fotos son obligatorias",
+            },
+        },
+    },
 });
 
 export default Propiedad;
