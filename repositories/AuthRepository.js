@@ -60,6 +60,18 @@ const authRepository = {
             throw error;
         }
     },
+    getByTokenRecuperar: async (tokenRecuperar) => {
+        try {
+            const usuario = await Usuario.findOne({
+                where: {
+                    tokenRecuperar: tokenRecuperar,
+                },
+            });
+            return usuario;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default authRepository;

@@ -1,6 +1,7 @@
 import authRepository from "../repositories/AuthRepository.js";
 import { generateEmailToken } from "../utils/tokens/emailVerifyToken.js";
 import sendVerificationEmail from "../utils/emails/verificationEmail.js";
+import sendForgotPasswordEmail from "../utils/emails/forgotPasswordEmail.js";
 import { UnauthorizedError } from "../errors/index.js";
 import {
     generateAccessToken,
@@ -113,7 +114,7 @@ const authService = {
     },
     confirmEmail: async (token) => {
         try {
-            const usuario = await authRepository.getByEmailToken(token);
+            const usuario = await authRepository.getByTokenVerificar(token);
 
             if (!usuario) {
                 throw new UnauthorizedError("Token inválido", token);
@@ -121,6 +122,40 @@ const authService = {
 
             usuario.verificarEmail = true;
             usuario.tokenVerificar = null;
+            await usuario.save();
+        } catch (error) {
+            throw error;
+        }
+    },
+    forgotPassword: async (correo) => {
+        try {
+            const usuario = await authRepository.getByCorreo(correo);
+
+            if (!usuario) {
+                throw new UnauthorizedError("Usuario no registrado", null);
+            }
+
+            if (!usuario.verificarEmail) {
+                throw new UnauthorizedError("Correo sin verificar", null);
+            }
+
+            usuario.tokenRecuperar = generateEmailToken();
+            await usuario.save();
+            await sendForgotPasswordEmail(usuario.correo, usuario.tokenReset);
+        } catch (error) {
+            throw error;
+        }
+    },
+    resetPassword: async (token, clave) => {
+        try {
+            const usuario = await authRepository.getByTokenRecuperar(token);
+
+            if (!usuario) {
+                throw new UnauthorizedError("Token inválido", token);
+            }
+
+            usuario.clave = clave;
+            usuario.tokenRecuperar = null;
             await usuario.save();
         } catch (error) {
             throw error;
