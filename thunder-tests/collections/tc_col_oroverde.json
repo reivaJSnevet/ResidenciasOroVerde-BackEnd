@@ -628,12 +628,12 @@
             "method": "POST",
             "sortNum": 350000,
             "created": "2024-03-09T22:10:20.209Z",
-            "modified": "2024-03-10T01:21:41.865Z",
+            "modified": "2024-03-10T08:26:27.739Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"javier.diaz.marin@est.una.ac.cr\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"123456789\",\n    \"secundario\": \"987654321\"\n  },\n  \"RolId\": \"2300da42-e590-4d3d-a907-56181e25dcfc\"\n}",
+                "raw": "{\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"javier.diaz.marin@est.una.ac.cr\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"89650345\",\n    \"secundario\": \"26804265\"\n  },\n  \"RolId\": \"8fcdc613-744b-449e-b23c-e8ef28b40838\"\n}",
                 "form": []
             },
             "reqType": "post",
