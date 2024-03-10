@@ -3,6 +3,10 @@ import dotevn from "dotenv";
 
 dotevn.config({ path: ".env" });
 
+/**
+ * Represents the database connection.
+ * @type {Sequelize}
+ */
 const db = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,

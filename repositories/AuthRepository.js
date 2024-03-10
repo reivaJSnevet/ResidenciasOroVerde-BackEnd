@@ -40,6 +40,26 @@ const authRepository = {
             throw error;
         }
     },
+    register: async (nuevoUsuario) => {
+        try {
+            const usuario = await Usuario.create(nuevoUsuario);
+            return usuario;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getByTokenVerificar: async (tokenVerificar) => {
+        try {
+            const usuario = await Usuario.findOne({
+                where: {
+                    tokenVerificar: tokenVerificar,
+                },
+            });
+            return usuario;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default authRepository;

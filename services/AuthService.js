@@ -1,4 +1,6 @@
 import authRepository from "../repositories/AuthRepository.js";
+import { generateEmailToken } from "../utils/tokens/emailVerifyToken.js";
+import sendVerificationEmail from "../utils/emails/verificationEmail.js";
 import { UnauthorizedError } from "../errors/index.js";
 import {
     generateAccessToken,
@@ -95,6 +97,31 @@ const authService = {
                 usuario,
                 tokenAcceso,
             };
+        } catch (error) {
+            throw error;
+        }
+    },
+    register: async (nuevoUsuario) => {
+        try {
+            const usuario = await authRepository.register({...nuevoUsuario, tokenVerificar: generateEmailToken(), verificarEmail: false});
+            delete usuario.dataValues.clave;
+            await sendVerificationEmail(usuario.correo, usuario.tokenVerificar);
+            return usuario;
+        } catch (error) {
+            throw error;
+        }
+    },
+    confirmEmail: async (token) => {
+        try {
+            const usuario = await authRepository.getByEmailToken(token);
+
+            if (!usuario) {
+                throw new UnauthorizedError("Token inválido", token);
+            }
+
+            usuario.verificarEmail = true;
+            usuario.tokenVerificar = null;
+            await usuario.save();
         } catch (error) {
             throw error;
         }

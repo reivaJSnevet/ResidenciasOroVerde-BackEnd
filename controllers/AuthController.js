@@ -48,6 +48,22 @@ const authController = {
             next(error);
         }
     },
+    register: async (req, res, next) => {
+        try {
+            const nuevoUsuario = await authService.register(req.body);
+            res.status(201).json(nuevoUsuario);
+        } catch (error) {
+            next(error);
+        }
+    },
+    confirmEmail: async (req, res, next) => {
+        try {
+            await authService.confirmEmail(req.params.token);
+            res.status(200).json({ message: "Correo confirmado" });
+        } catch (error) {
+            next(error);
+        }
+    },
 };
 
 export default authController;

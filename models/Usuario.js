@@ -125,6 +125,9 @@ const Usuario = db.define(
             allowNull: false,
             defaultValue: true,
         },
+        tokenVerificar: {
+            type: DataTypes.STRING,
+        },
         tokenRefrescar: {
             type: DataTypes.STRING,
         },
@@ -144,7 +147,7 @@ const Usuario = db.define(
             },
         },
         defaultScope: {
-            attributes: { exclude: ["clave", "tokenRefrescar", "tokenRecuperar"] },
+            attributes: { exclude: ["clave", "tokenVerificar", "tokenRefrescar", "tokenRecuperar"] },
         },
     }
 );

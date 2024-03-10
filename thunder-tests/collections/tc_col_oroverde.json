@@ -99,7 +99,7 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-03-05T17:12:29.995Z",
-            "modified": "2024-03-09T04:42:50.428Z",
+            "modified": "2024-03-09T23:29:39.228Z",
             "headers": [],
             "params": [],
             "reqType": "get",
@@ -164,12 +164,12 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-05T17:17:16.343Z",
-            "modified": "2024-03-09T03:02:53.902Z",
+            "modified": "2024-03-10T01:17:17.872Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"adminiaaaaa\"\n}",
+                "raw": "{\n  \"nombre\": \"admin\"\n}",
                 "form": []
             },
             "reqType": "post",
@@ -617,6 +617,26 @@
             "modified": "2024-03-09T05:38:33.793Z",
             "headers": [],
             "params": [],
+            "tests": []
+        },
+        {
+            "_id": "115d9afd-8f4b-4508-a85a-4b0fac4eb3c7",
+            "colId": "77117c17-a450-4e69-9d41-43cc9f3cc6b0",
+            "containerId": "c7821f2f-7884-4037-8dcb-5b94f32a3734",
+            "name": "Register",
+            "url": "auth/register",
+            "method": "POST",
+            "sortNum": 350000,
+            "created": "2024-03-09T22:10:20.209Z",
+            "modified": "2024-03-10T01:21:41.865Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"javier.diaz.marin@est.una.ac.cr\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"123456789\",\n    \"secundario\": \"987654321\"\n  },\n  \"RolId\": \"2300da42-e590-4d3d-a907-56181e25dcfc\"\n}",
+                "form": []
+            },
+            "reqType": "post",
             "tests": []
         }
     ],
