@@ -8,7 +8,8 @@
     "start": "node index.js",
     "server": "nodemon --quiet index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jwt": "node generarJWT.js"
+    "jwt": "node generarJWT.js",
+    "seed": "node ./seed/seeder.js -i"
   },
   "author": "",
   "license": "MIT",

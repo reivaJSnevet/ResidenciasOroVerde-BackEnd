@@ -64,12 +64,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-05T17:05:37.551Z",
-            "modified": "2024-03-10T05:54:44.945Z",
+            "modified": "2024-03-10T07:04:58.150Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id\": \"267317282\",\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"juan@example.com\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"123456789\",\n    \"secundario\": \"987654321\"\n  },\n  \"RolId\": \"a062b328-eb6e-4adf-b1c6-a93820beee39\"\n}",
+                "raw": "{\n  \"id\": \"267317282\",\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"juan@example.com\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"123456789\",\n    \"secundario\": \"987654321\"\n  },\n  \"RolId\": \"8fcdc613-744b-449e-b23c-e8ef28b40837\"\n}",
                 "form": []
             },
             "reqType": "post",
