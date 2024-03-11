@@ -57,6 +57,39 @@ const propiedadService = {
       throw error;
     }
   },
+
+  createCalificacion: async (id, {usuarioId, calificacion}) => {
+    try {
+      const nuevaCalificacion = await propiedadRepository.createCalificacion(id, usuarioId, calificacion);
+      return nuevaCalificacion;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  updateCalificacion: async (idCalificacion, calificacion) => {
+    try {
+      const calificacionActualizada = await propiedadRepository.updateCalificacion(idCalificacion, calificacion);
+      if (!calificacionActualizada) {
+        throw new NotFoundError("Calificacion de Propiedad", idCalificacion);
+      }
+      return calificacionActualizada;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  deleteCalificacion: async (idCalificacion) => {
+    try {
+      const calificacion = await propiedadRepository.deleteCalificacion(idCalificacion);
+      if (!calificacion) {
+        throw new NotFoundError("Calificacion de Propiedad", idCalificacion);
+      }
+      return calificacion;
+    } catch (error) {
+      throw error;
+    }
+  }
 };
 
 export default propiedadService;

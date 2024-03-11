@@ -1,4 +1,4 @@
-import {Propiedad} from "../models/index.js";
+import {Propiedad, Calificacion} from "../models/index.js";
 
 const propiedadRepository = {
     
@@ -48,11 +48,44 @@ const propiedadRepository = {
               where: { id },
               individualHooks: true,
           });
-          return rol;
+          return propiedad;
       } catch (error) {
           throw error;
       }
   },
+
+  createCalificacion: async (id, usuarioId, calificacion) => {
+        try {
+            const nuevaCalificacion = await Calificacion.create({PropiedadId: id, UsuarioId: usuarioId, calificacion});
+            return nuevaCalificacion;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    updateCalificacion: async (idCalificacion, calificacion) => {
+        try {
+            const calificacionActualizada = await Calificacion.update(calificacion, {
+                where: { id: idCalificacion },
+                individualHooks: true,
+            });
+            return calificacionActualizada [1][0];
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    deleteCalificacion: async (idCalificacion) => {
+        try {
+            const calificacion = await Calificacion.destroy({
+                where: { id: idCalificacion },
+                individualHooks: true,
+            });
+            return calificacion;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default propiedadRepository;

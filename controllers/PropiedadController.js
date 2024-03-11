@@ -46,6 +46,34 @@ const propiedadController = {
         next(error);
     }
   },
+
+  postCalificacion: async (req, res, next) => {
+    try {
+      const calificacion = await PropiedadService.createCalificacion(req.params.id, req.body);
+      res.status(201).json(calificacion);
+    } catch (error) {
+        next(error);
+    }
+  },
+
+  putCalificacion: async (req, res, next) => {
+    try {
+      const calificacion = await PropiedadService.updateCalificacion(req.params.id, req.body);
+      res.status(200).json(calificacion);
+    } catch (error) {
+        next(error);
+    }
+  },
+
+  deleteCalificacion: async (req, res, next) => {
+    try {
+      const calificacion = await PropiedadService.deleteCalificacion(req.params.id);
+      res.status(200).json(calificacion);
+    } catch (error) {
+        next(error);
+    }
+  },
+
 };
 
 export default propiedadController;
