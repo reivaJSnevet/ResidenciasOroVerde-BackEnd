@@ -60,6 +60,13 @@ const propiedadService = {
 
   createCalificacion: async (id, {usuarioId, calificacion}) => {
     try {
+        const propiedad = await propiedadRepository.getById(id);
+        if (!propiedad) {
+          throw new NotFoundError("Propiedad", id);
+        }else if (!propiedad.renta){
+            throw new NotFoundError("Propiedad en alquiler", id);
+        }
+
       const nuevaCalificacion = await propiedadRepository.createCalificacion(id, usuarioId, calificacion);
       return nuevaCalificacion;
     } catch (error) {
