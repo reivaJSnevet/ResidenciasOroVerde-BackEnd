@@ -19,6 +19,7 @@ import transporter from "./config/nodemailer.js";
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
 import verifyJWT from "./middlewares/verifyJWT.js";
+import credentials from "./middlewares/credentials.js";
 
 import {
     rolRoute,
