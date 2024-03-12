@@ -3,7 +3,7 @@ import { Usuario, Rol } from "../models/index.js";
 const authRepository = {
     getByCorreo: async (correo) => {
         try {
-            const usuario = await Usuario.findOne({
+            const usuario = await Usuario.scope("withPassword").findOne({
                 where: {
                     correo: correo,
                 },

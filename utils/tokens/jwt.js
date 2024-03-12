@@ -19,7 +19,7 @@ const generateAccessToken = (usuario) => {
 			},
 			process.env.JWT_SECRET,
 			{
-				expiresIn: "1d", //Change to 15m in production
+				expiresIn: "1m", //Change to 15m in production
 			},
 		);
 		return accessToken;
@@ -46,7 +46,7 @@ const generateRefreshToken = (usuario) => {
 			},
 			process.env.JWT_REFRESH_SECRET,
 			{
-				expiresIn: "1d", //Change to 1h in production
+				expiresIn: "10m", //Change to 1h in production
 			},
 		);
 		return refreshToken;
@@ -66,6 +66,7 @@ const verifySignature = (token, secret) => {
 		return new Promise((resolve, reject) => {
 			jwt.verify(token, secret, (err, decoded) => {
 				if (err) {
+                    console.log(err.message);
 					reject(new UnauthorizedError("jwt verifySignature", token));
 				} else {
 					resolve(decoded);

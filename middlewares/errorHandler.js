@@ -1,5 +1,3 @@
-import e from "express";
-
 const sequelizeErrorHandlerMap = {
     SequelizeUniqueConstraintError: (err, res) => {
         return res.status(400).json({
@@ -71,6 +69,7 @@ const customErrorHandlerMap = {
             error: err.name,
             message: err.message,
             resource: err.resource,
+            token: process.env.NODE_ENV === "development" ? err.token : "🎫",
         });
     },
     ValidationError: (err, res) => {

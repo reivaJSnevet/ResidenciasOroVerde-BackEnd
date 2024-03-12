@@ -18,7 +18,9 @@ const authService = {
                 throw new UnauthorizedError("Usuario no registrado", null);
             }
 
-            if (!usuario.validarClave(clave)) {
+            const valid = await usuario.validarClave(clave);
+            
+            if (!valid) {
                 throw new UnauthorizedError("Contraseña incorrecta", null);
             }
 
@@ -29,8 +31,11 @@ const authService = {
             const tokenAcceso = generateAccessToken(usuario);
             const tokenRefrescar = generateRefreshToken(usuario);
 
+            
             usuario.tokenRefrescar = tokenRefrescar;
             await usuario.save();
+
+            delete usuario.dataValues.clave;
             delete usuario.dataValues.tokenRefrescar;
 
             return {

@@ -581,12 +581,12 @@
             "method": "POST",
             "sortNum": 320000,
             "created": "2024-03-09T02:46:37.094Z",
-            "modified": "2024-03-09T04:44:16.390Z",
+            "modified": "2024-03-12T20:18:18.727Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"correo\": \"juan@example.com\",\n  \"clave\": \"Password123\"\n}",
+                "raw": "{\n  \"correo\": \"a@gmail.com\",\n  \"clave\": \"Password123a\"\n}",
                 "form": []
             },
             "reqType": "post",
