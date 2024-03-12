@@ -11,9 +11,16 @@ const propiedadRepository = {
     }
   },
 
-  getAll: async () => {
+  getAll: async (page, size) => {
     try {
-      const propiedades = await Propiedad.findAll();
+        const options = {};
+
+        if (page && size) {
+            options.limit = +size;
+            options.offset =  (+page -1 ) * (+size) ;
+        }   
+
+      const propiedades = await Propiedad.findAll(options);
       return propiedades;
     } catch (error) {
       throw error;

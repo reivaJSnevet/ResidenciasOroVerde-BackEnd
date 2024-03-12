@@ -11,9 +11,9 @@ const propiedadService = {
     }
   },
 
-  getAllPropiedades: async () => {
+  getAllPropiedades: async ({page, size}) => {
     try {
-      const propiedades = await propiedadRepository.getAll();
+      const propiedades = await propiedadRepository.getAll(page, size);
       return propiedades;
     } catch (error) {
       throw error;

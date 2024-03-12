@@ -13,7 +13,7 @@ const propiedadController = {
 
   getAllPropiedades: async (req, res, next) => {
     try {
-      const propiedades = await PropiedadService.getAllPropiedades();
+      const propiedades = await PropiedadService.getAllPropiedades(req.query);
       res.status(200).json(propiedades);
     } catch (error) {
         next(error);
