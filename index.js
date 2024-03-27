@@ -30,6 +30,7 @@ import {
     roleRoutes,
     userRoutes,
 } from "./routes/index.js";
+import { propertyPublicRouter } from "./routes/propertyRoutes.js";
 
 
 //creating an instance of the Express server
@@ -104,6 +105,7 @@ async function NodemailerConnection() {
 
 //defining public routes
 app.use("/api", authRoutes);
+app.use("/api", propertyPublicRouter);
 
 //defining private routes
 app.use("/api", verifyJWT);
