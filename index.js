@@ -19,16 +19,16 @@ import transporter from "./config/nodemailer.js";
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
 import verifyJWT from "./middlewares/verifyJWT.js";
-import credentials from "./middlewares/credentials.js";
+/* import credentials from "./middlewares/credentials.js"; */
 
 import {
-    rolRoute,
-    calificacionRoute,
-    usuarioRoute,
-    propiedadRoute,
-    categoriaRoute,
-    comentarioRoute,
-    authRoute,
+    authRoutes,
+    categoryRoutes,
+    commentRoutes,
+    propertyRoutes,
+    ratingRoutes,
+    roleRoutes,
+    userRoutes,
 } from "./routes/index.js";
 
 
@@ -100,19 +100,20 @@ async function NodemailerConnection() {
 };
 
 //calling the function to establish a connection to the transporter
-await NodemailerConnection();
+/* await NodemailerConnection(); */
 
 //defining public routes
-app.use("/api", authRoute);
+app.use("/api", authRoutes);
 
 //defining private routes
 app.use("/api", verifyJWT);
-app.use("/api", rolRoute);
-app.use("/api", propiedadRoute);
-app.use("/api", categoriaRoute);
-app.use("/api", comentarioRoute);
-app.use("/api", usuarioRoute);
-app.use("/api", calificacionRoute);
+app.use("/api", roleRoutes);
+app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
+app.use("/api", propertyRoutes);
+app.use("/api", userRoutes);
+app.use("/api", ratingRoutes);
+app.use("/api", commentRoutes);
 
 //catch-all routes not found
 app.use((req, res, next) => {

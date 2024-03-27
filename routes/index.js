@@ -1,7 +1,7 @@
-export { default as rolRoute } from './RolRoutes.js';
-export { default as calificacionRoute } from './CalificacionRoutes.js';
-export { default as usuarioRoute} from './UserRoutes.js'
-export { default as propiedadRoute} from './PropiedadRoutes.js'
-export { default as categoriaRoute} from './CategoriaRoutes.js'
-export { default as comentarioRoute} from './ComentarioRoutes.js'
-export { default as authRoute } from './AuthRoutes.js';
+export { default as authRoutes } from './authRoutes.js';
+export { default as categoryRoutes } from './categoryRoutes.js';
+export { default as commentRoutes } from './commentRoutes.js';
+export { default as propertyRoutes } from './propertyRoutes.js';
+export { default as ratingRoutes } from './ratingRoutes.js';
+export { default as roleRoutes } from './roleRoutes.js';
+export { default as userRoutes } from './userRoutes.js';

@@ -4,18 +4,18 @@ import { UnauthorizedError } from "../../errors/index.js";
 /**
  * Generates an access token for the given user.
  * @param {object} user - The user object.
- * @param {string} user.nombre - The name of the user.
- * @param {object} user.Rol - The role object of the user.
- * @param {string} user.Rol.nombre - The name of the role.
+ * @param {string} user.name - The name of the user.
+ * @param {object} user.Role - The role object of the user.
+ * @param {string} user.Role.name - The name of the role.
  * @returns {string} - The generated access token.
  * @throws {Error} - If an error occurs during token generation.
  */
-const generateAccessToken = (usuario) => {
+const generateAccessToken = (user) => {
 	try {
 		const accessToken = jwt.sign(
 			{
-				usuario: usuario.nombre,
-				rol: usuario.Rol.nombre,
+				user: user.name,
+				role: user.Role.name,
 			},
 			process.env.JWT_SECRET,
 			{
@@ -31,18 +31,18 @@ const generateAccessToken = (usuario) => {
 /**
  * Generates a refresh token for a user.
  * @param {Object} user - The user object.
- * @param {string} user.nombre - The username of the user.
- * @param {Object} user.Rol - The role object of the user.
- * @param {string} user.Rol.nombre - The name of the role.
+ * @param {string} user.name - The username of the user.
+ * @param {Object} user.Role - The role object of the user.
+ * @param {string} user.Role.name - The name of the role.
  * @returns {string} - The generated refresh token.
  * @throws {Error} - If an error occurs while generating the refresh token.
  */
-const generateRefreshToken = (usuario) => {
+const generateRefreshToken = (user) => {
 	try {
 		const refreshToken = jwt.sign(
 			{
-				usuario: usuario.nombre,
-				rol: usuario.Rol.nombre,
+				user: user.name,
+				role: user.Role.name,
 			},
 			process.env.JWT_REFRESH_SECRET,
 			{

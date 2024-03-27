@@ -1,26 +1,26 @@
-import Rol from "./Rol.js";
-import Usuario from "./Usuario.js";
-import Propiedad from "./Propiedad.js";
-import Categoria from "./Categoria.js";
-import Comentario from "./Comentario.js";
-import Calificacion from "./Calificacion.js";
+import Category from "./Category.js";
+import Comment from "./Comment.js";
+import Property from "./Property.js";
+import Rating from "./Rating.js";
+import Role from "./Role.js";
+import User from "./User.js";
 
-Rol.hasMany(Usuario, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
-Usuario.belongsTo(Rol);
+Role.hasMany(User, { foreignKey: { allowNull: true }, onDelete: "SET NULL", onUpdate: "CASCADE" });
+User.belongsTo(Role, { foreignKey: { allowNull: true }, onDelete: "SET NULL", onUpdate: "CASCADE" });
 
-Usuario.hasMany(Propiedad, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
-Propiedad.belongsTo(Usuario);
+User.hasMany(Property, { foreignKey: { allowNull: false }, onDelete: "CASCADE", onUpdate: "CASCADE"  });
+Property.belongsTo(User, { foreignKey: { allowNull: false }, onDelete: "CASCADE", onUpdate: "CASCADE"  });
 
-Categoria.belongsToMany(Propiedad, { through: "propiedad_categoria" });
-Propiedad.belongsToMany(Categoria, { through: "propiedad_categoria" });
+Category.belongsToMany(Property, { through: "property_category" } );
+Property.belongsToMany(Category, { through: "property_category" });
 
-Usuario.hasMany(Comentario, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
-Comentario.belongsTo(Usuario);
+User.hasMany(Comment, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
+Comment.belongsTo(User, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
 
-Propiedad.hasMany(Comentario, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
-Comentario.belongsTo(Propiedad);
+Property.hasMany(Comment, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
+Comment.belongsTo(Property, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
 
-Usuario.belongsToMany(Propiedad, { through: Calificacion });
-Propiedad.belongsToMany(Usuario, { through: Calificacion }) ;
+User.belongsToMany(Property, { through: Rating });
+Property.belongsToMany(User, { through: Rating });
 
-export { Rol, Usuario, Propiedad, Categoria, Comentario, Calificacion };
+export { Category, Comment, Property, Rating, Role, User };
