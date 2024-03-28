@@ -73,6 +73,7 @@
  * /users:
  *   get:
  *     summary: Obtiene todos los usuarios
+ *     tags: [Users]
  *     security:
  *      - bearerAuth: []
  *     responses:
@@ -90,6 +91,7 @@
  *         description: Error interno del servidor
  *   post:
  *     summary: Crea un nuevo usuario
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
@@ -116,6 +118,7 @@
  * /users/{id}:
  *   get:
  *     summary: Obtiene un usuario por su id
+ *     tags: [Users]
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -140,6 +143,7 @@
  *         description: Error interno del servidor
  *   put:
  *     summary: Actualiza un usuario por su id
+ *     tags: [Users]
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -170,6 +174,7 @@
  *         description: Error interno del servidor
  *   delete:
  *     summary: Elimina un usuario por su id
+ *     tags: [Users]
  *     security:
  *       - bearerAuth: []
  *     parameters:
