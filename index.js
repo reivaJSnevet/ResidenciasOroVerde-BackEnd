@@ -10,11 +10,13 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
+import morgan from "morgan";
 
 //importing configuration files
 import db from "./config/db.js";
 import corsOptions from "./config/corsOptions.js";
 import transporter from "./config/nodemailer.js";
+import swaggerJSDoc from "./config/swagger.js";
 
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
@@ -42,6 +44,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(helmet());
+app.use(morgan("dev"));
+swaggerJSDoc(app);
+
 /* app.use(credentials); */
 
 /**
