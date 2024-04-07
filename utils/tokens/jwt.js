@@ -19,7 +19,7 @@ const generateAccessToken = (user) => {
 			},
 			process.env.JWT_SECRET,
 			{
-				expiresIn: "1m", //Change to 15m in production
+				expiresIn: "30m", //Change to 15m in production
 			},
 		);
 		return accessToken;
@@ -46,7 +46,7 @@ const generateRefreshToken = (user) => {
 			},
 			process.env.JWT_REFRESH_SECRET,
 			{
-				expiresIn: "10m", //Change to 1h in production
+				expiresIn: "60m", //Change to 1h in production
 			},
 		);
 		return refreshToken;
