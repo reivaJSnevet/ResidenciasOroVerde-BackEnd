@@ -51,6 +51,21 @@ const Property = db.define("Property", {
                     );
                 }
             },
+            isCrPoint(value) {
+                const [latitude, longitude] = value.coordinates;
+
+                if (
+                    latitude < 9.443376 ||
+                    latitude > 11.333333 ||
+                    longitude < -85.953791 ||
+                    longitude > -82.555576
+                ) {
+                    throw new ValidationError(
+                        "Las coordenadas deben estar dentro de Costa Rica.",
+                        "coordinates"
+                    );
+                }
+            },
         },
     },
     squareMeters: {

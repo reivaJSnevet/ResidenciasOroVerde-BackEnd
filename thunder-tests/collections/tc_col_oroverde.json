@@ -614,16 +614,13 @@
             "method": "POST",
             "sortNum": 350000,
             "created": "2024-03-09T22:10:20.209Z",
-            "modified": "2024-03-10T08:26:27.739Z",
+            "modified": "2024-05-01T01:20:46.805Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Minder\",\n  \"apellido1\": \"García\",\n  \"apellido2\": \"López\",\n  \"correo\": \"javier.diaz.marin@est.una.ac.cr\",\n  \"clave\": \"Password123\",\n  \"telefonos\": {\n    \"principal\": \"89650345\",\n    \"secundario\": \"26804265\"\n  },\n  \"RolId\": \"8fcdc613-744b-449e-b23c-e8ef28b40838\"\n}",
+                "raw": "{\n  \"name\": \"Minder\",\n  \"lastName\": \"García\",\n  \"lastName2\": \"López\",\n  \"email\": \"juan@example.com\",\n  \"password\": \"Password123\",\n  \"phoneNumbers\": {\n    \"principal\": \"123456789\",\n    \"secundario\": \"987654321\"\n  }\n}",
                 "form": []
-            },
-            "reqType": "post",
-            "tests": []
+            }
         },
         {
             "_id": "07e2ab96-1164-4013-9c65-a4a8eb9a8308",
@@ -665,7 +662,7 @@
             "name": "ForgotPassword",
             "url": "auth/forgot-password",
             "method": "POST",
-            "sortNum": 380000,
+            "sortNum": 357500,
             "created": "2024-03-10T06:08:57.213Z",
             "modified": "2024-03-10T06:09:59.368Z",
             "headers": [],
