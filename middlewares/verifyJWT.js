@@ -1,40 +1,28 @@
 import { verifySignature } from "../utils/tokens/jwt.js";
-import { UnauthorizedError } from "../errors/index.js";
 
 const verifyJWT = async (req, res, next) => {
     try {
 		const authHeader =
 			req.headers.authorization || req.headers.Authorization;
-        const resource = req.originalUrl;
 		if (!authHeader?.startsWith("Bearer")) {
-			throw new UnauthorizedError(
-				`${resource}: VerifyJWT startWithBearer`,
-                authHeader
-			);
+			return next();
 		}
 
-		const token = authHeader.split(" ")[1];
+		const token = authHeader?.split(" ")[1];
 
 		if (!token) {
-			throw new UnauthorizedError(
-				`${resource}: VerifyJWT noToken`,
-				token,
-			);
+            return next();
 		}
 
 		const decoded = await verifySignature(token, process.env.JWT_SECRET);
 
 		if (!decoded) {
-			throw new UnauthorizedError(
-				`${resource}: VerifyJWT decode`,
-				token,
-			);
+            return next();
 		}
 
-		req.usuario = decoded.usuario;
-		req.rol = decoded.rol;
+        req.isAuthentic = true;
 
-		next();
+		return next();
 	} catch (error) {
 		next(error);
 	}

@@ -21,6 +21,7 @@ import swaggerJSDoc from "./config/swagger.js";
 //importing middleware
 import errorHandler from "./middlewares/errorHandler.js";
 import verifyJWT from "./middlewares/verifyJWT.js";
+import requireJWT from "./middlewares/requireJWT.js";
 /* import credentials from "./middlewares/credentials.js"; */
 
 import {
@@ -32,8 +33,6 @@ import {
     roleRoutes,
     userRoutes,
 } from "./routes/index.js";
-import { propertyPublicRouter } from "./routes/propertyRoutes.js";
-
 
 //creating an instance of the Express server
 const app = express();
@@ -110,14 +109,15 @@ async function NodemailerConnection() {
 
 //defining public routes
 app.use("/api", authRoutes);
-app.use("/api", propertyPublicRouter);
+app.use("/api", verifyJWT);
+app.use("/api", propertyRoutes);
 
 //defining private routes
-app.use("/api", verifyJWT);
+app.use("/api", requireJWT);
 app.use("/api", roleRoutes);
 app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
-app.use("/api", propertyRoutes);
+
 app.use("/api", userRoutes);
 app.use("/api", ratingRoutes);
 app.use("/api", commentRoutes);

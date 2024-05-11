@@ -18,9 +18,28 @@ const propertyService = {
             throw error;
         }
     },
+    getAllPublicProperties: async () => {
+        try {
+            const properties = await propertyRepository.getAllPublic();
+            return properties;
+        } catch (error) {
+            throw error;
+        }
+    },
     getPropertyById: async (id) => {
         try {
             const property = await propertyRepository.getById(id);
+            if (!property) {
+                throw new NotFoundError("Propiedad", id);
+            }
+            return property;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getPropertyByPublicId: async (id) => {
+        try {
+            const property = await propertyRepository.getByPublicId(id);
             if (!property) {
                 throw new NotFoundError("Propiedad", id);
             }

@@ -232,15 +232,13 @@
             "method": "POST",
             "sortNum": 110000,
             "created": "2024-03-05T17:22:16.661Z",
-            "modified": "2024-03-27T15:06:55.325Z",
+            "modified": "2024-05-06T20:51:22.572Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id\": \"c6ec296c-dd30-4cac-9d6f-40affa8c4e65\",\n  \"name\": \"Casa de Campito\",\n  \"coordinates\": {\n    \"type\": \"Point\",\n    \"coordinates\": [-75.689728, 45.420943]\n  },\n  \"squareMeters\": \"200m²\",\n  \"forRent\": true,\n  \"bedroomNum\": 3,\n  \"bathroomNum\": 2,\n  \"garage\": 0,\n  \"rentalPrice\": 1200.50,\n  \"description\": \"Acogedora casa de campo con amplio jardín.\",\n  \"restriction\": \"No se permiten mascotas.\",\n  \"photos\": \"https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg,https://www.esneca.lat/wp-content/uploads/disen%CC%83o-interior.jpg,https://planner5d.com/blog/content/images/2022/05/andre-francois-mckenzie-sZ5CteK2r6E-unsplash.jpg,https://static.vecteezy.com/system/resources/previews/011/444/845/large_2x/home-interior-rendering-with-empty-room-decorate-gray-color-wall-free-photo.jpg\",\n    \"UserId\": \"267317282\"\n}",
+                "raw": "{\n  \"id\": \"c6ec296c-dd30-4cac-9d6f-40affa8c4e65\",\n  \"name\": \"Casa de Campito\",\n  \"coordinates\": {\n    \"type\": \"Point\",\n    \"coordinates\": [9.974792, -85.671876]\n  },\n  \"squareMeters\": \"200m²\",\n  \"forRent\": true,\n  \"bedroomNum\": 3,\n  \"bathroomNum\": 2,\n  \"garage\": 0,\n  \"rentalPrice\": 1200.50,\n  \"description\": \"Acogedora casa de campo con amplio jardín.\",\n  \"restriction\": \"No se permiten mascotas.\",\n  \"photos\": \"https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg,https://www.esneca.lat/wp-content/uploads/disen%CC%83o-interior.jpg,https://planner5d.com/blog/content/images/2022/05/andre-francois-mckenzie-sZ5CteK2r6E-unsplash.jpg,https://static.vecteezy.com/system/resources/previews/011/444/845/large_2x/home-interior-rendering-with-empty-room-decorate-gray-color-wall-free-photo.jpg\",\n    \"UserId\": \"267317282\"\n}",
                 "form": []
-            },
-            "tests": []
+            }
         },
         {
             "_id": "9d562128-d1f6-4a03-83eb-a40cc27c9605",
