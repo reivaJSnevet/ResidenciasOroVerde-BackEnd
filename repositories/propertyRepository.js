@@ -31,7 +31,31 @@ const propertyRepository = {
             throw error;
         }
     },
+    getAllPublic: async () => {
+        try {
+            const properties = await Property.findAll();
+            return properties;
+        } catch (error) {
+            throw error;
+        }
+    },
     getById: async (id) => {
+        try {
+            const property = await Property.findByPk(id,
+                {
+                    include: [
+                        {
+                            model: User,
+                        },
+                    ],
+                }
+            );
+            return property;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getByPublicId: async (id) => {
         try {
             const property = await Property.findByPk(id);
             return property;

@@ -11,16 +11,27 @@ const propertyController = {
   },
   getAllProperties: async (req, res, next) => {
     try {
-      const properties = await propertyService.getAllProperties(req.query);
-      res.status(200).json(properties);
+        if( req.isAuthentic === true ){
+            const properties = await propertyService.getAllProperties(req.query);
+            res.status(200).json(properties);
+        }else{
+            const publicProperties = await propertyService.getAllPublicProperties();
+            res.status(200).json(publicProperties);
+        }
+      
     } catch (error) {
         next(error);
     }
   },
   getPropertyById: async (req, res, next) => {
     try {
-      const property = await propertyService.getPropertyById(req.params.id);
-      res.status(200).json(property);
+        if( req.isAuthentic === true ){
+            const property = await propertyService.getPropertyById(req.params.id);
+            res.status(200).json(property);
+        }else{
+            const property = await propertyService.getPropertyByPublicId(req.params.id);
+            res.status(200).json(property);
+        }
     } catch (error) {
         next(error);
     }
