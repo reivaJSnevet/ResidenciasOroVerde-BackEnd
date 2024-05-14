@@ -88,8 +88,8 @@ const Property = db.define("Property", {
                 msg: "Es obligatorio indicar si la propiedad es para alquiler",
             },
             isIn: {
-                args: ["true", "false"],
-                msg: "El tipo de renta debe ser 'true' o 'false'",
+                args: [[true, false]],
+                msg: 'El valor debe ser verdadero(true) o falso(false)'
             },
         },
     },
