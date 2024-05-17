@@ -23,6 +23,48 @@ const Property = db.define("Property", {
             isSpanishAlpha: (value) => isSpanishAlpha(value, "name"),
         },
     },
+
+    province: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: "La provincia es obligatoria",
+            },
+            notEmpty: {
+                msg: "La provincia no puede quedar vacía",
+            },
+            isSpanishAlpha: (value) => isSpanishAlpha(value, "province"),
+        },
+    },
+
+    canton: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: "El cantón es obligatorio",
+            },
+            notEmpty: {
+                msg: "El cantón no puede quedar vacío",
+            },
+            isSpanishAlpha: (value) => isSpanishAlpha(value, "canton"),
+        },
+    },
+
+    district: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: "El distrito es obligatorio",
+            },
+            notEmpty: {
+                msg: "El distrito no puede quedar vacío",
+            },
+            isSpanishAlpha: (value) => isSpanishAlpha(value, "district"),
+        },
+    },
     coordinates: {
         type: DataTypes.GEOMETRY("POINT"),
         allowNull: false,
