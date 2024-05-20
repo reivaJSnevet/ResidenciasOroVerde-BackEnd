@@ -1,5 +1,6 @@
 export { default as roles } from "./roles.js";
-export { default as usuarios } from "./usuarios.js";
-export { default as categorias } from "./categorias.js";
-export { default as propiedades } from "./propiedades.js";
-export { default as comentarios } from "./comentarios.js";
+export { default as users } from "./users.js";
+export { default as categories } from "./categories.js";
+export { default as properties } from "./properties.js";
+export { default as comments } from "./comments.js";
+export { default as ratings } from "./ratings.js";

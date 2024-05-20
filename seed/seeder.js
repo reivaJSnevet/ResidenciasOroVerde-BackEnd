@@ -1,17 +1,25 @@
 import db from "../config/db.js";
-import { Rol, Usuario, Categoria, Propiedad, Comentario} from "../models/index.js";
-import { roles, usuarios, categorias, propiedades, comentarios } from "./index.js";
+import { Role, User, Category, Property, Comment, Rating} from "../models/index.js";
+import { roles, users, categories, properties, comments, ratings } from "./index.js";
 
 const seeder = async () => {
     try {
         await db.authenticate();
         await db.sync({ force: true });
 
-        await Rol.bulkCreate(roles);
-        await Usuario.bulkCreate(usuarios);
-        await Categoria.bulkCreate(categorias);
-        await Propiedad.bulkCreate(propiedades);
-        await Comentario.bulkCreate(comentarios);
+        await Role.bulkCreate(roles);
+        await User.bulkCreate(users);
+        const newCategories = await Category.bulkCreate(categories);
+        const newProperties = await Property.bulkCreate(properties);
+        await Comment.bulkCreate(comments);
+        await Rating.bulkCreate(ratings);
+
+        await newProperties[0].addCategories(newCategories[15]);
+        await newProperties[1].addCategories(newCategories[2]);
+        await newProperties[2].addCategories(newCategories[12]);
+
+
+        
 
         console.log(
             "\x1b[32m%s\x1b[0m",
@@ -23,7 +31,7 @@ const seeder = async () => {
             "\x1b[31m%s\x1b[0m",
             "Unfortunately, the seeder encountered a glitch, leaving the database barren and the seeds of progress unattended.",
             "ERROR: ",
-            error
+            error.message
         );
         process.exit(1);
     }
