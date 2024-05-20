@@ -7,11 +7,12 @@ const options = {
         info: {
             title: "OroVerde API",
             version: "1.0.0",
-            description: "A simple Express API",
+            description: "A simple Express API for OroVerde project. This API is part of the OroVerde project, a project for the Web development course at the Universidad Nacional de Costa Rica. The project is a web application that allows users to create and manage properties for rent or sale.",
         },
         servers: [
             {
                 url: "http://localhost:3000/api/",
+                description: "Local server",
             },
         ],
         components: {
@@ -29,7 +30,10 @@ const options = {
             },
         ],
     },
-    apis: ["./routes/*.js", "./swagger/comments/*.js"],
+    apis: [
+        './docs/swagger/schemas/*.js',
+        './docs/swagger/routes/*.js'
+    ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
