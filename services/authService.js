@@ -1,4 +1,4 @@
-import { UnauthorizedError } from "../errors/index.js";
+import { NotFoundError, UnauthorizedError } from "../errors/index.js";
 import authRepository from "../repositories/authRepository.js";
 import sendVerificationEmail from "../utils/emails/verificationEmail.js";
 import sendForgotPasswordEmail from "../utils/emails/forgotPasswordEmail.js";
@@ -109,6 +109,7 @@ const authService = {
                 ...newUser,
                 verifyToken: generateEmailToken(),
                 isEmailVerify: false,
+                RoleId: "8fcdc613-744b-449e-b23c-e8ef28b40839",
             });
             delete user.dataValues.password;
             await sendVerificationEmail(user.email, user.verifyToken);
@@ -137,7 +138,7 @@ const authService = {
             const user = await authRepository.getByEmail(email);
 
             if (!user) {
-                throw new UnauthorizedError("Usuario no registrado", null);
+                throw new NotFoundError("Email", email);
             }
 
             if (!user.isEmailVerify) {
