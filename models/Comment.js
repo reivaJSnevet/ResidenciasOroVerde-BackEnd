@@ -24,7 +24,7 @@ const Comment = db.define("Comment", {
             },
         },
     },
-    fechaPublicacion: {
+    date: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         allowNull: false,      
