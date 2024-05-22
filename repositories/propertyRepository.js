@@ -1,4 +1,4 @@
-import { Property, Rating, User } from "../models/index.js";
+import { Category, Property, Rating, User } from "../models/index.js";
 
 const propertyRepository = {
     create: async (newProperty) => {
@@ -122,6 +122,39 @@ const propertyRepository = {
             throw error;
         }
     },
+
+    getCategories: async (propertyId) => {
+        try {
+            const property = await Property.findByPk(propertyId, {
+                include: {
+                    model: Category,
+                    through: { attributes: [] }
+                }
+            });      
+            return property;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    addCategory: async (propertyId, categoryId) => {
+        try {
+            const property = await Property.findByPk(propertyId);
+            const category = await Category.findByPk(categoryId);
+            if (property && category) {
+                await property.addCategories(category);
+                return {
+                    property,
+                    category,
+                    }
+            }
+            return false;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+
 };
 
 export default propertyRepository;

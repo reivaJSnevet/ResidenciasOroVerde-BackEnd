@@ -1,6 +1,7 @@
 import { NotFoundError, ValidationError } from "../errors/index.js";
 import propertyRepository from "../repositories/propertyRepository.js";
 
+
 const propertyService = {
     createProperty: async (newProperty) => {
         try {
@@ -120,6 +121,29 @@ const propertyService = {
             throw error;
         }
     },
+
+
+    getCategories: async ({ propertyId }) => {
+        try {
+          const categories = await propertyRepository.getCategories(propertyId);
+          return categories;
+        } catch (error) {
+          throw error;
+        }
+      },
+
+
+
+    createCategory: async (propertyId, categoryId) => {
+        try {
+            const category = await propertyRepository.addCategory(propertyId, categoryId);
+            return category;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    
 };
 
 export default propertyService;
