@@ -1,4 +1,4 @@
-import { Category, Property, Rating, User } from "../models/index.js";
+import { Category, Property, Rating, User, Comment } from "../models/index.js";
 
 const propertyRepository = {
     create: async (newProperty) => {
@@ -47,6 +47,14 @@ const propertyRepository = {
                         {
                             model: User,
                         },
+                        {
+                            model: Comment,
+                            include: [
+                                {
+                                    model: User,
+                                },
+                            ],
+                        }
                     ],
                 }
             );
