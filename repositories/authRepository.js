@@ -64,7 +64,7 @@ const authRepository = {
         try {
             const user = await User.findOne({
                 where: {
-                    recoveryToken: recoveryToken,
+                    recoverToken: recoveryToken,
                 },
             });
             return user;
