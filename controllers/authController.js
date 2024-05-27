@@ -15,7 +15,7 @@ const authController = {
                 sameSite: "none",
                 secure: true,
                 /* signed: true, */
-                maxAge: 600000,
+                maxAge: 3600000,
             });
 
             res.status(200).json({ user, accessToken });

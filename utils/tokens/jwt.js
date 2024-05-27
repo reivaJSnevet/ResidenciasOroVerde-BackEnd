@@ -46,7 +46,7 @@ const generateRefreshToken = (user) => {
 			},
 			process.env.JWT_REFRESH_SECRET,
 			{
-				expiresIn: "60m", //Change to 1h in production
+				expiresIn: "1h",
 			},
 		);
 		return refreshToken;
