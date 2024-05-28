@@ -24,4 +24,6 @@ const Category = db.define("Category", {
     },
 });
 
+
+
 export default Category;
