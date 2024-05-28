@@ -23,6 +23,7 @@ const propertyRepository = {
                 include: [
                     {
                         model: User,
+                        model: Category,
                     },
                 ],
             });
@@ -33,7 +34,15 @@ const propertyRepository = {
     },
     getAllPublic: async () => {
         try {
-            const properties = await Property.findAll();
+            const properties = await Property.findAll(
+                {
+                    include: [
+                        {
+                            model: Category,
+                        },
+                    ],
+                }
+            );
             return properties;
         } catch (error) {
             throw error;

@@ -107,7 +107,9 @@ async function NodemailerConnection() {
 //calling the function to establish a connection to the transporter
 /* await NodemailerConnection(); */
 
+
 //defining public routes
+app.use("/api", categoryRoutes);
 app.use("/api", authRoutes);
 app.use("/api", verifyJWT);
 app.use("/api", propertyRoutes);
@@ -116,7 +118,7 @@ app.use("/api", propertyRoutes);
 app.use("/api", requireJWT);
 app.use("/api", roleRoutes);
 app.use("/api", userRoutes);
-app.use("/api", categoryRoutes);
+
 
 app.use("/api", userRoutes);
 app.use("/api", ratingRoutes);
