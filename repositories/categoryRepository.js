@@ -11,7 +11,9 @@ const categoryRepository = {
     },
     getAll: async () => {
         try {
-            const categories = await Category.findAll();
+            const categories = await Category.findAll({
+                order: [["name", "ASC"]],
+            });
             return categories;
         } catch (error) {
             throw error;
