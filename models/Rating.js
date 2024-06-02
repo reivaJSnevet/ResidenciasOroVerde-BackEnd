@@ -37,6 +37,11 @@ const Rating = db.define(
             afterCreate: async (rating) => await calculateRating(rating),
             afterUpdate: async (rating) => await calculateRating(rating),
             afterDestroy: async (rating) => await calculateRating(rating),
+            afterBulkCreate: async (ratings) => {
+                for (const rating of ratings) {
+                    await calculateRating(rating);
+                }
+            },
         },
     }
 );
