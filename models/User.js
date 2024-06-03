@@ -14,54 +14,53 @@ const User = db.define(
             allowNull: false,
         },
         name: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(20),
             allowNull: false,
             validate: {
                 notNull: {
                     msg: "El nombre es obligatorio",
                 },
                 notEmpty: {
-                    msg: "El nombre no puede venir vacío",
+                    msg: "El nombre es obligatorio",
                 },
                 len: {
-                    args: [3, 50],
-                    msg: "El nombre debe tener entre 3 y 50 caracteres",
+                    args: [3, 20],
+                    msg: "Debe contener entre 3-20 caracteres",
                 },
                 isSpanishAlpha: (value) => isSpanishAlpha(value, "name"),
-            },
+           
+          },
         },
         lastName: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(20),
             allowNull: false,
             validate: {
                 notNull: {
                     msg: "El primer apellido es obligatorio",
                 },
                 notEmpty: {
-                    msg: "El primer apellido no puede venir vacío",
+                    msg: "El primer apellido es obligatorio",
                 },
                 len: {
-                    args: [3, 50],
-                    msg: "El primer apellido debe tener entre 3 y 50 caracteres",
+                    args: [3, 20],
+                    msg: "Debe contener entre 3-20 caracteres",
                 },
-                isSpanishAlpha: (value) => isSpanishAlpha(value, "lastName"),
             },
         },
         lastName2: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(20),
             allowNull: false,
             validate: {
                 notNull: {
                     msg: "El segundo apellido es obligatorio",
                 },
                 notEmpty: {
-                    msg: "El segundo apellido no puede venir vacío",
+                    msg: "El segundo apellido es obligatorio",
                 },
                 len: {
-                    args: [3, 50],
-                    msg: "El segundo apellido debe tener entre 3 y 50 caracteres",
+                    args: [3, 20],
+                    msg: "Debe contener entre 3-20 caracteres",
                 },
-                isSpanishAlpha: (value) => isSpanishAlpha(value, "lastName2"),
             },
         },
         email: {
@@ -72,10 +71,10 @@ const User = db.define(
                     msg: "El correo es obligatorio",
                 },
                 notEmpty: {
-                    msg: "El correo no puede venir vacío",
+                    msg: "El correo es obligatorio",
                 },
                 isEmail: {
-                    msg: "El correo debe ser un correo válido",
+                    msg: "Formato inválido",
                 },
             },
         },
@@ -87,11 +86,11 @@ const User = db.define(
                     msg: "La clave es obligatoria",
                 },
                 notEmpty: {
-                    msg: "La clave no puede venir vacía",
+                    msg: "La clave es obligatoria",
                 },
                 min: {
                     args: [8],
-                    msg: "La clave debe tener al menos 8 caracteres",
+                    msg: "La clave debe contener al menos 8 caracteres",
                 },
                 is: {
                     args: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
@@ -107,7 +106,7 @@ const User = db.define(
                     msg: "El teléfono es obligatorio",
                 },
                 notEmpty: {
-                    msg: "El teléfono no puede venir vacío",
+                    msg: "El teléfono es obligatorio",
                 },
                 isJSON: (value) => {
                     try {

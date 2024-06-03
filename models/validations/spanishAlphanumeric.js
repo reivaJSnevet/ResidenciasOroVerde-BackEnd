@@ -21,6 +21,9 @@ const isSpanishAlphanumeric = (value, field) => {
  * @throws {Error} Throws an error if the value contains non-alphabetic characters.
  */
 const isSpanishAlpha = (value, field) => {
+    if (value.trim() === '') {
+        return; 
+    }
 	const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/i;
 	if (!regex.test(value)) {
         throw new ValidationError("El valor debe contener solo caracteres alfabéticos.", field);
