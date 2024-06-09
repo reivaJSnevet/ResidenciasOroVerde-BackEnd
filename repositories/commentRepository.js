@@ -47,6 +47,16 @@ const commentRepository = {
             throw error;
         }
     },
+    getAllByUser: async (userId) => {
+        try {
+            const comments = await Comment.findAll({
+                where: { UserId: userId },
+            });
+            return comments;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default commentRepository;

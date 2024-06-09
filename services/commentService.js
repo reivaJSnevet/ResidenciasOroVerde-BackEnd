@@ -51,6 +51,14 @@ const commentService = {
             throw error;
         }
     },
+    getAllByUser: async (userId) => {
+        try {
+            const comments = await commentRepository.getAllByUser(userId);
+            return comments;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default commentService;

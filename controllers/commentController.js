@@ -40,7 +40,15 @@ const commentController = {
         } catch (error) {
             next(error);
         }
-    }
+    },
+    getAllByUser: async (req, res, next) => {
+        try {
+            const comments = await commentService.getAllByUser(req.params.userId);
+            res.status(200).json(comments);
+        } catch (error) {
+            next(error);
+        }
+    },
 };
 
 export default commentController;
