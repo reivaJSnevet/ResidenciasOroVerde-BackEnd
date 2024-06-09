@@ -49,6 +49,19 @@ const ratingRepository = {
             throw error;
         }
     },
+    validateRating: async (userId, propertyId) => {
+        try {
+            const rating = await Rating.findOne({
+                where: {
+                    UserId: userId,
+                    PropertyId: propertyId,
+                },
+            });
+            return rating;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default ratingRepository;
