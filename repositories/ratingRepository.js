@@ -1,4 +1,4 @@
-import { Rating } from "../models/index.js";
+import { Rating, User } from "../models/index.js";
 
 const ratingRepository = {
     create: async (newRating) => {
@@ -49,7 +49,7 @@ const ratingRepository = {
             throw error;
         }
     },
-    validateRating: async (userId, propertyId) => {
+    hasRating: async (userId, propertyId) => {
         try {
             const rating = await Rating.findOne({
                 where: {
@@ -62,6 +62,17 @@ const ratingRepository = {
             throw error;
         }
     },
+    hasPermision: async (userId, propertyId) => {
+        try {
+            const user = await User.findByPk(userId);
+            const hasPermission = await user.hasRatingPermission(propertyId);
+            console.log(hasPermission);
+            return hasPermission;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 };
 
 export default ratingRepository;

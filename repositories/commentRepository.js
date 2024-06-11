@@ -1,4 +1,4 @@
-import { Comment } from "../models/index.js";
+import { Comment, User } from "../models/index.js";
 
 const commentRepository = {
     create: async (newComment) => {
@@ -57,6 +57,15 @@ const commentRepository = {
             throw error;
         }
     },
+    validatePermission: async (userId, propertyId) => {
+        try {
+            const user = await User.findByPk(userId);
+            const hasPermission = await user.hasRatingPermission(propertyId);
+            return hasPermission;
+        } catch (error) {
+            throw error;
+        }
+    }
 };
 
 export default commentRepository;

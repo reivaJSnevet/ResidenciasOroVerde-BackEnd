@@ -1,9 +1,13 @@
-import { NotFoundError } from "../errors/index.js";
+import { NotFoundError, ForbiddenError } from "../errors/index.js";
 import commentRepository from "../repositories/commentRepository.js";
 
 const commentService = {
     createComment: async (newComment) => {
         try {
+            const hasPermission = await commentRepository.validatePermission(newComment.UserId, newComment.PropertyId);
+            if (!hasPermission) {
+                throw new ForbiddenError("Crear Comentario", ", no tienes permisos para comentar en esta propiedad.", null);
+            }
             const comment = await commentRepository.create(newComment);
             return comment;
         } catch (error) {
