@@ -66,7 +66,6 @@ const verifySignature = (token, secret) => {
 		return new Promise((resolve, reject) => {
 			jwt.verify(token, secret, (err, decoded) => {
 				if (err) {
-                    console.log(err.message);
 					reject(new UnauthorizedError("jwt verifySignature", token));
 				} else {
 					resolve(decoded);

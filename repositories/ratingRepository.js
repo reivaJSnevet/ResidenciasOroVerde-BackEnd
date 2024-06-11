@@ -66,7 +66,6 @@ const ratingRepository = {
         try {
             const user = await User.findByPk(userId);
             const hasPermission = await user.hasRatingPermission(propertyId);
-            console.log(hasPermission);
             return hasPermission;
         } catch (error) {
             throw error;
