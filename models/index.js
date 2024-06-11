@@ -23,4 +23,10 @@ Comment.belongsTo(Property, { foreignKey: { allowNull: false }, onDelete: "CASCA
 User.belongsToMany(Property, { through: Rating });
 Property.belongsToMany(User, { through: Rating });
 
+User.belongsToMany(Property, { through: "favorite_properties", as: "favoriteProperties"});
+Property.belongsToMany(User, { through: "favorite_properties", as: "favoriteProperties"});
+
+User.belongsToMany(Property, { through: "property_rating_permissions", as: "ratingPermissions"});
+Property.belongsToMany(User, { through: "property_rating_permissions", as: "ratingPermissions"});
+
 export { Category, Comment, Property, Rating, Role, User };
