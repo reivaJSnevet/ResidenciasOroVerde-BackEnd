@@ -54,6 +54,38 @@ const userService = {
             throw error;
         }
     },
+    addFavoriteProperty: async (userId, propertyId) => {
+        try {
+            const user = await userRepository.addFavoriteProperty(userId, propertyId);
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    },
+    removeFavoriteProperty: async (userId, propertyId) => {
+        try {
+            const user = await userRepository.removeFavoriteProperty(userId, propertyId);
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    },
+    addRatingPermission: async (userId, propertyId) => {
+        try {
+            const user = await userRepository.addRatingPermission(userId, propertyId);
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    },
+    removeRatingPermission: async (userId, propertyId) => {
+        try {
+            const user = await userRepository.removeRatingPermission(userId, propertyId);
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default userService;

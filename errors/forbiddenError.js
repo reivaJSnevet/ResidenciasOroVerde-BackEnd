@@ -14,7 +14,7 @@ class ForbiddenError extends CustomError {
      * @param {string} token - The token associated with the forbidden action.
      */
     constructor(action, reason, token) {
-        const message = `Acceso denegado ${reason}`;
+        const message = `Acceso denegado${reason}`;
         super("ForbiddenError", message, 403);
         this.action = action;
         this.reason = reason;

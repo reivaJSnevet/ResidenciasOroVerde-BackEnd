@@ -40,7 +40,41 @@ const userController = {
         } catch (error) {
             next(error);
         }
-    }
+    },
+    addFavoriteProperty: async (req, res, next) => {
+            try {
+                const user = await userService.addFavoriteProperty(req.params.id, req.body.propertyId);
+                res.status(200).json(user);
+            } catch (error) {
+                next(error);
+            }
+    },
+    removeFavoriteProperty: async (req, res, next) => {
+        try {
+            const user = await userService.removeFavoriteProperty(req.params.id, req.body.propertyId);
+            res.status(200).json(user);
+        } catch (error) {
+            next(error);
+        }
+    },
+    addRatingPermission: async (req, res, next) => {
+        try {
+            const user = await userService.addRatingPermission(req.params.id, req.body.propertyId);
+            res.status(200).json(user);
+        } catch (error) {
+            next(error);
+        }
+    },
+    removeRatingPermission: async (req, res, next) => {
+        try {
+            const user = await userService.removeRatingPermission(req.params.id, req.body.propertyId);
+            res.status(200).json(user);
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    
 }
 
 export default userController;
