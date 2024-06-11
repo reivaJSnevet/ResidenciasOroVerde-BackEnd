@@ -67,6 +67,10 @@ const propertyRepository = {
                     ],
                 }
             );
+
+            property.dataValues.ratingCount = await Rating.count({
+                where: { PropertyId: id },
+            });
             return property;
         } catch (error) {
             throw error;
