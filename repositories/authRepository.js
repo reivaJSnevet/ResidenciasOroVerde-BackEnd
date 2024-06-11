@@ -1,4 +1,4 @@
-import { User, Role } from "../models/index.js";
+import { User, Role, Rating, Property } from "../models/index.js";
 
 const authRepository = {
     getByEmail: async (email) => {
@@ -7,8 +7,21 @@ const authRepository = {
                 where: {
                     email: email,
                 },
-                include: [Role],
+                include: [
+                    {
+                        model: Role,
+                    },
+                    {
+                        model: Property,
+                        as: "ratings",
+                    },
+                    {
+                        model: Property,
+                        as: "favoriteProperties",
+                    }
+                ]
             });
+
             return user;
         } catch (error) {
             throw error;
@@ -33,7 +46,19 @@ const authRepository = {
                 where: {
                     refreshToken: refreshToken,
                 },
-                include: [Role],
+                include: [
+                    {
+                        model: Role,
+                    },
+                    {
+                        model: Property,
+                        as: "ratings",
+                    },
+                    {
+                        model: Property,
+                        as: "favoriteProperties",
+                    }
+                ]
             });
             return user;
         } catch (error) {

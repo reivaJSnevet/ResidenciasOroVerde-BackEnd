@@ -20,8 +20,8 @@ Comment.belongsTo(User, { foreignKey: { allowNull: false }, onDelete: "CASCADE" 
 Property.hasMany(Comment, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
 Comment.belongsTo(Property, { foreignKey: { allowNull: false }, onDelete: "CASCADE" });
 
-User.belongsToMany(Property, { through: Rating });
-Property.belongsToMany(User, { through: Rating });
+User.belongsToMany(Property, { through: Rating, as: "ratings"});
+Property.belongsToMany(User, { through: Rating, as: "ratings"});
 
 User.belongsToMany(Property, { through: "favorite_properties", as: "favoriteProperties"});
 Property.belongsToMany(User, { through: "favorite_properties", as: "favoriteProperties"});
