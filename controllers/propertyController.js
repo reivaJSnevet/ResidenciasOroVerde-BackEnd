@@ -80,7 +80,6 @@ const propertyController = {
 
   getCategories: async (req, res, next) => {
     try {
-      console.log("propertyId:", req.params.id);
       const categories = await propertyService.getCategories({ propertyId: req.params.id });
       res.status(200).json(categories);
     } catch (error) {
