@@ -70,6 +70,14 @@ const userService = {
             throw error;
         }
     },
+    getFavoriteProperties: async (userId) => {
+        try {
+            const properties = await userRepository.getFavoriteProperties(userId);
+            return properties;
+        } catch (error) {
+            throw error;
+        }
+    },
     addRatingPermission: async (userId, propertyId) => {
         try {
             const user = await userRepository.addRatingPermission(userId, propertyId);

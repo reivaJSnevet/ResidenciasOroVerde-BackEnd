@@ -55,9 +55,17 @@ const userRepository = {
     },
     removeFavoriteProperty: async (userId, propertyId) => {
         try {
-            const user = await User.findByPk(userId);
-            await user.removeFavoriteProperty(propertyId);
-            return user;
+            const user = await User.findByPk(userId, { include: "favoriteProperties" });
+            await user.removeFavoriteProperties(propertyId);
+            return user.favoriteProperties;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getFavoriteProperties: async (userId) => {
+        try {
+            const user = await User.findByPk(userId, { include: "favoriteProperties" });
+            return user.favoriteProperties;
         } catch (error) {
             throw error;
         }

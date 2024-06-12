@@ -43,7 +43,7 @@ const userController = {
     },
     addFavoriteProperty: async (req, res, next) => {
             try {
-                const user = await userService.addFavoriteProperty(req.params.id, req.body.propertyId);
+                const user = await userService.addFavoriteProperty(req.params.id, req.params.propertyId);
                 res.status(200).json(user);
             } catch (error) {
                 next(error);
@@ -51,15 +51,23 @@ const userController = {
     },
     removeFavoriteProperty: async (req, res, next) => {
         try {
-            const user = await userService.removeFavoriteProperty(req.params.id, req.body.propertyId);
+            const user = await userService.removeFavoriteProperty(req.params.id, req.params.propertyId);
             res.status(200).json(user);
+        } catch (error) {
+            next(error);
+        }
+    },
+    getFavoriteProperties: async (req, res, next) => {
+        try {
+            const properties = await userService.getFavoriteProperties(req.params.id);
+            res.status(200).json(properties);
         } catch (error) {
             next(error);
         }
     },
     addRatingPermission: async (req, res, next) => {
         try {
-            const user = await userService.addRatingPermission(req.params.id, req.body.propertyId);
+            const user = await userService.addRatingPermission(req.params.id, req.params.propertyId);
             res.status(200).json(user);
         } catch (error) {
             next(error);
@@ -67,7 +75,7 @@ const userController = {
     },
     removeRatingPermission: async (req, res, next) => {
         try {
-            const user = await userService.removeRatingPermission(req.params.id, req.body.propertyId);
+            const user = await userService.removeRatingPermission(req.params.id, req.params.propertyId);
             res.status(200).json(user);
         } catch (error) {
             next(error);
