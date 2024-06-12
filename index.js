@@ -26,6 +26,7 @@ import requireJWT from "./middlewares/requireJWT.js";
 
 import {
     authRoutes,
+    contactRoute,
     categoryRoutes,
     commentRoutes,
     propertyRoutes,
@@ -108,7 +109,8 @@ async function NodemailerConnection() {
 /* await NodemailerConnection(); */
 
 
-//defining public routes
+//defining public 
+app.use("/api", contactRoute);
 app.use("/api", categoryRoutes);
 app.use("/api", authRoutes);
 app.use("/api", verifyJWT);
