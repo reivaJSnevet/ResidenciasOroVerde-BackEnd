@@ -7,7 +7,7 @@ const properties = [
     district: "Santa Cruz",
     coordinates: {
       type: "Point",
-      coordinates: [10.239877, -85.593247],
+      coordinates: [10.3080495,-85.592349],
     },
     squareMeters: "400m²",
     forRent: true,
@@ -28,7 +28,7 @@ const properties = [
     district: "Sámara",
     coordinates: {
       type: "Point",
-      coordinates: [9.883913, -85.525561],
+      coordinates: [9.886774, -85.546514],
     },
     squareMeters: "80m²",
     forRent: true,
@@ -43,13 +43,13 @@ const properties = [
   },
   {
     id: "80233d31-ca00-4648-b1fb-e66d7db063fd",
-    name: "Casa de playa en Caletas",
+    name: "Casa en playa Grande",
     province: "Guanacaste",
     canton: "Santa Cruz",
     district: "Tamarindo",
     coordinates: {
       type: "Point",
-      coordinates: [10.299167, -85.840000],
+      coordinates: [10.313347, -85.838150],
     },
     squareMeters: "600m²",
     forRent: true,
@@ -71,8 +71,8 @@ const properties = [
     coordinates: {
       type: "Point",
       coordinates: [
-        10.636513,
-        -85.441448
+        10.296046,
+       -85.840443
       ]
     },
     squareMeters: "400m²",
@@ -95,8 +95,8 @@ const properties = [
     coordinates: {
       type: "Point",
       coordinates: [
-        10.6344,
-        -85.4407
+        10.625316,
+        -85.6769206
       ]
     },
     squareMeters: "250m²",
@@ -115,13 +115,16 @@ const properties = [
     id: "9a233d31-ca00-4648-b1fb-e66d7db063fh",
     name: "Villa del Mar",
     province: "Guanacaste",
-    canton: "Carrillo",
-    district: "Filadelfia",
+    canton: "Nandayure",
+    district: "Bejuco",
     coordinates: {
       type: "Point",
-      "coordinates": [10.426940, -85.478040]
+      "coordinates": [
+          9.812228,
+         -85.309852
+      ]
     },
-    squareMeters: "250m²",
+    squareMeters: "700m²",
     forRent: true,
     bedroomNum: 3,
     bathroomNum: 2,
@@ -141,9 +144,9 @@ const properties = [
     district: "Mansión",
     coordinates: {
       type: "Point",
-      coordinates: [10.147222, -85.452222]
+      coordinates: [10.1071537,-85.3706519]
     },
-    squareMeters: "250m²",
+    squareMeters: "500m²",
     forRent: false,
     bedroomNum: 2,
     bathroomNum: 2,
@@ -163,7 +166,7 @@ const properties = [
     district: "Mayorga",
     coordinates: {
       type: "Point",
-      coordinates: [10.633333, -85.433333]
+      coordinates: [10.8359112,-85.4749234]
     },
     squareMeters: "150m²",
     forRent: true,
@@ -185,7 +188,7 @@ const properties = [
     district: "Bolsón",
     coordinates: {
       type: "Point",
-      coordinates: [10.261389, -85.586944]
+      coordinates: [10.356058, -85.454767]
     },
     squareMeters: "300m²",
     forRent: false,
@@ -194,7 +197,7 @@ const properties = [
     garage: 1,
     salePrice: 40000,
     description: "Amplia casa en la ciudad con todas las comodidades modernas.",
-    restrictions: "No se permiten eventos.",
+    restrictions: null,
     rating: 4.7,
     photos: "https://mls.re.cr/api/images/rl1800232/rl1800232_img_large.jpg",
     UserId: "80233d31-ca00-4648-b1fb-e66d7db063fe"
@@ -229,7 +232,7 @@ const properties = [
     district: "La Cruz",
     coordinates: {
       type: "Point",
-      coordinates: [11.062222, -85.634167]
+      coordinates: [11.069600, -85.632513]
     },
     squareMeters: "500m²",
     forRent: false,
@@ -237,8 +240,8 @@ const properties = [
     bathroomNum: 4,
     garage: 1,
     salePrice: 50000,
-    description: "Amplia casa en la ciudad con todas las comodidades modernas.",
-    restrictions: "No se permiten eventos.",
+    description: "Muy amplio, ubicado en la ciudad con todas las comodidades modernas.",
+    restrictions: null,
     rating: 4.7,
     photos: "https://static.tokkobroker.com/pictures/42809526315508203084959750409625680032510303435465262932742331165877409021013.jpg",
     UserId: "80233d31-ca00-4648-b1fb-e66d7db063fe"
@@ -251,7 +254,7 @@ const properties = [
     district: "La Cruz",
     coordinates: {
       type: "Point",
-      coordinates: [11.062222, -85.634167]
+      coordinates: [11.068706, -85.675534] 
     },
     squareMeters: "400m²",
     forRent: true,
@@ -273,7 +276,7 @@ const properties = [
     district: "Fortuna",
     coordinates: {
       type: "Point",
-      coordinates: [10.433333, -85.133333]
+      coordinates: [10.676323, -85.20935]
     },
     squareMeters: "400m²",
     forRent: true,
@@ -297,7 +300,7 @@ const properties = [
     district: "Liberia",
     coordinates: {
       type: "Point",
-      coordinates: [10.633333, -85.433333]
+      coordinates: [10.634286, -85.441591]
     },
     squareMeters: "300m²",
     forRent: false,
@@ -306,7 +309,7 @@ const properties = [
     garage: 1,
     salePrice: 35000,
     description: "Moderna casa en el centro de la ciudad con todas las comodidades y un diseño elegante.",
-    restrictions: "No se permiten mascotas.",
+    restrictions: null,
     rating: 4.7,
     photos: 
       "https://media-cdn.tripadvisor.com/media/vr-splice-j/12/37/9e/3b.jpg,https://media-cdn.tripadvisor.com/media/vr-splice-j/12/3a/cc/9e.jpg,https://media-cdn.tripadvisor.com/media/vr-splice-j/12/3b/1d/03.jpg,https://media-cdn.tripadvisor.com/media/vr-splice-j/12/3a/cc/9a.jpg,https://media-cdn.tripadvisor.com/media/vr-splice-j/12/3b/1c/fd.jpg,https://media-cdn.tripadvisor.com/media/vr-splice-j/12/3b/1c/f9.jpg ",
@@ -320,7 +323,7 @@ const properties = [
     district: "Belén",
     coordinates: {
       type: "Point",
-      coordinates: [9.880556, -85.452778]
+      coordinates: [10.4067107,-85.5908857]
     },
     squareMeters: "350m²",
     forRent: true,
@@ -343,7 +346,7 @@ const properties = [
     district: "Cabo Velas",
     coordinates: {
       type: "Point",
-      coordinates: [10.416667, -85.816667]
+      coordinates: [10.353144, -85.856152]
     },
     squareMeters: "150m²",
     forRent: true,
@@ -365,7 +368,7 @@ const properties = [
     district: "Nosara",
     coordinates: {
       type: "Point",
-      coordinates: [9.979167, -85.653889]
+      coordinates: [9.963378, -85.677778]
     },
     squareMeters: "600m²",
     forRent: false,
@@ -388,10 +391,11 @@ const properties = [
     district: "Tamarindo",
     coordinates: {
       type: "Point",
-      coordinates: [10.299167, -85.84]
+      coordinates: [10.294985, -85.842127]
     },
     squareMeters: "450m²",
     forRent: true,
+    
     bedroomNum: 5,
     bathroomNum: 4,
     garage: 2,
