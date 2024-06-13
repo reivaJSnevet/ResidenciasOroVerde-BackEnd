@@ -22,7 +22,10 @@ const propertyRepository = {
                 options,
                 include: [
                     {
-                        model: User,
+                        model:User,
+                        as: "User",
+                    },
+                    {
                         model: Category,
                     },
                 ],

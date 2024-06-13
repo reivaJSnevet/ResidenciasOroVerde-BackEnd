@@ -8,8 +8,8 @@ import User from "./User.js";
 Role.hasMany(User, { foreignKey: { allowNull: true }, onDelete: "SET NULL", onUpdate: "CASCADE" });
 User.belongsTo(Role, { foreignKey: { allowNull: true }, onDelete: "SET NULL", onUpdate: "CASCADE" });
 
-User.hasMany(Property, { foreignKey: { allowNull: false }, onDelete: "CASCADE", onUpdate: "CASCADE"  });
-Property.belongsTo(User, { foreignKey: { allowNull: false }, onDelete: "CASCADE", onUpdate: "CASCADE"  });
+User.hasMany(Property, { foreignKey: { allowNull: false }, onDelete: "CASCADE", onUpdate: "CASCADE", as: "properties" });
+Property.belongsTo(User, { foreignKey: { allowNull: false }, onDelete: "CASCADE", onUpdate: "CASCADE", as: "User"});
 
 Category.belongsToMany(Property, { through: "property_category" } );
 Property.belongsToMany(Category, { through: "property_category" });

@@ -11,7 +11,9 @@ const userRepository = {
     },
     getAll: async () => {
         try {
-            const users = await User.findAll();
+            const users = await User.findAll({
+                include: "ratingPermissions"
+            });
             return users;
         } catch (error) {
             throw error;
@@ -19,7 +21,9 @@ const userRepository = {
     },
     getById: async (id) => {
         try {
-            const user = await User.findByPk(id);
+            const user = await User.findByPk(id,{
+                include: "ratingPermissions"
+            });
             return user;
         } catch (error) {
             throw error;
