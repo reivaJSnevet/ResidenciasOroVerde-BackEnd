@@ -58,6 +58,7 @@ const propertyRepository = {
                     include: [
                         {
                             model: User,
+                            as: "User",
                         },
                         {
                             model: Comment,

@@ -43,6 +43,16 @@ const ratingService = {
     },
     updateRating: async (id, newValues) => {
         try {
+
+            const hasPermission = await ratingRepository.hasPermision(newValues.UserId, newValues.PropertyId);
+
+            if (!hasPermission) {
+                throw new ForbiddenError("Calificar Propiedad", ",no tienes permisos para calificar esta propiedad", null);
+            }
+
+            delete newValues.UserId;
+            delete newValues.PropertyId;
+
             const rating = await ratingRepository.update(id, newValues);
             if (!rating) {
                 throw new NotFoundError("Calificacion", id);
