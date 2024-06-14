@@ -1,9 +1,9 @@
-import RoleService from "../services/RoleService.js";
+import roleService from "../services/roleService.js";
 
 const roleController = {
   postRole: async (req, res, next) => {
     try {
-      const role = await RoleService.createRole(req.body);
+      const role = await roleService.createRole(req.body);
       res.status(201).json(role);
     } catch (error) {
       next(error);
@@ -11,7 +11,7 @@ const roleController = {
   },
   getAllRoles: async (req, res, next) => {
     try {
-      const roles = await RoleService.getAllRoles();
+      const roles = await roleService.getAllRoles();
       res.status(200).json(roles);
     } catch (error) {
       next(error);
@@ -19,7 +19,7 @@ const roleController = {
   },
   getRoleById: async (req, res, next) => {
     try {
-      const role = await RoleService.getRoleById(req.params.id);
+      const role = await roleService.getRoleById(req.params.id);
       res.status(200).json(role);
     } catch (error) {
       next(error);
@@ -27,7 +27,7 @@ const roleController = {
   },
   putRole: async (req, res, next) => {
     try {
-      const role = await RoleService.updateRole(req.params.id, req.body);
+      const role = await roleService.updateRole(req.params.id, req.body);
       res.status(200).json(role);
     } catch (error) {
       next(error);
@@ -35,7 +35,7 @@ const roleController = {
   },
   deleteRole: async (req, res, next) => {
     try {
-      const role = await RoleService.deleteRole(req.params.id);
+      const role = await roleService.deleteRole(req.params.id);
       res.status(200).json(role);
     } catch (error) {
       next(error);
