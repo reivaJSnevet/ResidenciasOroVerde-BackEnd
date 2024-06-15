@@ -14,6 +14,10 @@ const options = {
                 url: "http://localhost:3000/api/",
                 description: "Local server",
             },
+            {
+                url: "https://residenciasoroverde-backend-production.up.railway.app/api/",
+                description: "Production server",
+            }
         ],
         components: {
             securitySchemes: {
