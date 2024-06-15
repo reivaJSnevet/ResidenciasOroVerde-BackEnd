@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
  */
 const sendForgotPasswordEmail = async (email, token) => {
     try {
-        const resetLink = `http://localhost:5173/reset-password/${token}`;
+        const resetLink = `http://residenciasoroverde-backend-production.up.railway.app/reset-password/${token}`;
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
 

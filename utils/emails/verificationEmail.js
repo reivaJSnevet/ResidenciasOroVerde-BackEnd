@@ -70,7 +70,7 @@ const sendVerificationEmail = async (email, token) => {
                 
                        <p>Por favor, haz clic en el botón de abajo para verificar tu cuenta y comenzar a explorar todas las oportunidades que tenemos para ti.</p> 
             
-                     <a href="${process.env.WEB_URL}/api/auth/confirm-email/${token}">Verificar cuenta</a>
+                     <a href="${"residenciasoroverde-backend-production.up.railway.app"}/api/auth/confirm-email/${token}">Verificar cuenta</a>
                 </div>
             </div>
             </body>
